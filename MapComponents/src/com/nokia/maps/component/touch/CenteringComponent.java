@@ -69,11 +69,11 @@ public class CenteringComponent extends TouchComponent {
     public void paint(Graphics g) {// There is no visual feedback associated with this component.
     }
 
-    protected boolean isGUITouched(int x, int y) {
+    boolean isGUITouched(int x, int y) {
         return (map.getObjectAt(new Point(x, y)) != null);
     }
 	
-    protected boolean isGUIActive(int x, int y) {
+    boolean isGUIActive(int x, int y) {
         return true;
     }
 

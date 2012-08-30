@@ -44,7 +44,7 @@ public abstract class GUITouchComponent extends TouchComponent {
     /**
      * Checks to see whether a GUI element is active - i.e. if a touch has not been cancelled.
      */
-    protected boolean isGUIActive(int x, int y) {
+    boolean isGUIActive(int x, int y) {
         return getRenderer().isHighlight();
     }
 
@@ -78,7 +78,7 @@ public abstract class GUITouchComponent extends TouchComponent {
     /**
      * Decides whether the hit area has been touched.
      */
-    protected boolean isGUITouched(int x, int y) {
+    boolean isGUITouched(int x, int y) {
         if (isGUIVisible()) {
             Point anchor = getRenderer().getAnchor();
 

@@ -40,7 +40,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param y
      * @return
      */
-    protected abstract boolean isGUITouched(int x, int y);
+    abstract boolean isGUITouched(int x, int y);
 
     /**
      * Whether the GUI item is active - i.e has not been cancelled.
@@ -48,7 +48,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param y
      * @return
      */
-    protected abstract boolean isGUIActive(int x, int y);
+    abstract boolean isGUIActive(int x, int y);
 
     /**
      * 

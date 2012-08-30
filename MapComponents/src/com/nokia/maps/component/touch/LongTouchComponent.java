@@ -71,14 +71,14 @@ public class LongTouchComponent extends TouchComponent {
     /**
      * Since the Long press reacts to the whole screen, the GUI is always touched.
      */
-    protected boolean isGUITouched(int x, int y) {
+    boolean isGUITouched(int x, int y) {
         return true;
     }
 
     /**
      * The GUI is only active if the threshold has been exceeded.
      */
-    protected boolean isGUIActive(int x, int y) {
+    boolean isGUIActive(int x, int y) {
         return System.currentTimeMillis() - time > THRESHOLD;
     }
 
