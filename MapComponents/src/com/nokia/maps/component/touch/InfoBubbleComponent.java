@@ -39,12 +39,20 @@ public class InfoBubbleComponent extends GUITouchComponent {
 		this.mapCanvas = mapCanvas;
 	}
 
+	/**
+	 * Clears any data associations.
+	 */
 	public void clear() {
 		commands.clear();
 		bubbleTexts.clear();
 	}
 
-	
+	/**
+	 * Associates some text and a command to a map Object.
+	 * @param mo
+	 * @param text
+	 * @param command
+	 */
 	public void addData(MapObject mo, String text, Command command) {
 		if (mo != null) {
 			bubbleTexts.put(mo, text);
@@ -52,7 +60,11 @@ public class InfoBubbleComponent extends GUITouchComponent {
 		}
 	}
 
-	
+	/**
+	 * Associations some text and a command to the map object at the centre of the screen.
+	 * @param text
+	 * @param command
+	 */
 	public void addData(String text, Command command) {
 		addData(MapFocus.getInstance().objectAtMapCenter(map), text, command);
 	}
@@ -101,11 +113,17 @@ public class InfoBubbleComponent extends GUITouchComponent {
 		}
 	}
 	
+	/**
+	 * Initiates the touch event.
+	 */
 	public boolean onTouchEventStart(int x, int y) {
 		getInfobubbleGUI().touchAt(x,y);
 		return super.onTouchEventStart( x, y);
 	}
 	
+	/**
+	 * Potentially drags the text within the Infobubble.
+	 */
 	public boolean onDragEvent(int x, int y) {
 		// Drag the menu items if visible.
 		if (isGUIVisible()) {			
@@ -114,11 +132,29 @@ public class InfoBubbleComponent extends GUITouchComponent {
 		return super.onDragEvent( x, y);
 	}
 	
+	/**
+	 * Flicks the text within the infobubble based on the speed of the flick.
+	 */
+	public boolean onFlickEvent(int x, int y, float direction, int speed,
+			int speedX, int speedY) {
+		if (isGUIVisible()) {
+			getInfobubbleGUI().flick( speedY);
+			return TouchEventHandler.EVENT_CONSUMED;
+		}
+		return super.onFlickEvent(x, y, direction, speed, speedX, speedY);
+	}
+	
+	/**
+	 * Hides the infobubble since the clear event has occurred.
+	 */
 	public boolean onTouchEventClear(int x, int y) {
 		hideInfoBubble();
 		return super.onTouchEventClear(x, y);
 	}
 
+	/**
+	 * Hides the GUI Infobubble and re-instates the underlying map object.
+	 */
 	private void hideInfoBubble() {
 		getInfobubbleGUI().clearTooltip();
 		if (currentObject != null){
@@ -150,6 +186,10 @@ public class InfoBubbleComponent extends GUITouchComponent {
 
 	}
 
+	/**
+	 * Calculates where the focal item lies and initialises the GUI.
+	 * @param focusMO
+	 */
 	private void showInfoBubble(MapObject focusMO) {
 		if (currentObject != focusMO && currentObject != null){
 			currentObject.setVisible(true);

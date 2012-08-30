@@ -7,6 +7,11 @@ import com.nokia.maps.map.MapObject;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.map.Point;
 
+/**
+ * 
+ * Singleton to hold a series of useful Map Calculations.
+ *
+ */
 public class MapFocus {
 	
 	private static  MapFocus mapFocus;
@@ -32,11 +37,23 @@ public class MapFocus {
 				map.getHeight() / 2)): null;
 	}
 	
+	/**
+	 * 
+	 * @param map
+	 * @param mapObject
+	 * @return The pixel at the focal point of a mapObject.
+	 */
 	public  Point mapObjectToPixel( MapDisplay map,  MapObject mapObject) {
 		return map.geoToPixel(mapObjectToGeo(map, mapObject));
 	}
 	
 	
+	/**
+	 * 
+	 * @param map
+	 * @param mo
+	 * @return The Geocoordinate at the focal point of a mapObject.
+	 */
 	public  GeoCoordinate mapObjectToGeo( MapDisplay map, MapObject mo) {
 
 		if (mo instanceof MapStandardMarker) {

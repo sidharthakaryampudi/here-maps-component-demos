@@ -10,6 +10,12 @@ import com.nokia.maps.map.MapComponent;
 import com.nokia.maps.map.MapDisplay;
 import com.nokia.maps.map.MapObject;
 
+/**
+ * 
+ * Map Component to return a callback when a  registered Map Object lies at the
+ * focal point of the screen.
+ *
+ */
 public class FocalObserverComponent implements MapComponent {
 
 	private MapDisplay map;

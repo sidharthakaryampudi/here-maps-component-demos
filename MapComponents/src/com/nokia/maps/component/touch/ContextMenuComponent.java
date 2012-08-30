@@ -29,19 +29,21 @@ public class ContextMenuComponent extends GUITouchComponent {
 	private ChoiceGroup currentPopup;
 	private Command[] currentCommands;
 	private int selectedIndex;
-	
+
 	/**
 	 * Default Constructor.
 	 */
 	public ContextMenuComponent(MapCanvas mapCanvas, CommandListener listener) {
-		super( new ContextMenuRenderer());
+		super(new ContextMenuRenderer());
 		popupMenus = new Hashtable();
 		commands = new Hashtable();
 		commandListener = listener;
 		this.mapCanvas = mapCanvas;
 	}
-	
 
+	/**
+	 * Housekeeping method to remove any data associations.
+	 */
 	public void clear() {
 		commands.clear();
 		popupMenus.clear();
@@ -68,7 +70,8 @@ public class ContextMenuComponent extends GUITouchComponent {
 	 * @param choiceGroup
 	 */
 	public void addData(ChoiceGroup choiceGroup, Command[] commands) {
-		addData(MapFocus.getInstance().objectAtMapCenter(map), choiceGroup, commands);
+		addData(MapFocus.getInstance().objectAtMapCenter(map), choiceGroup,
+				commands);
 	}
 
 	/**
@@ -88,17 +91,18 @@ public class ContextMenuComponent extends GUITouchComponent {
 	 */
 	public void attach(MapDisplay map) {
 		super.attach(map);
-		getContextMenuGUI().setPreferredDimensions(map.getWidth(), map.getHeight());
+		getContextMenuGUI().setPreferredDimensions(map.getWidth(),
+				map.getHeight());
 	}
-	
+
 	private ContextMenuRenderer getContextMenuGUI() {
-		return ((ContextMenuRenderer)getRenderer());
+		return ((ContextMenuRenderer) getRenderer());
 	}
 
 	// from MapComponent
 	public String getId() {
 		return ID;
-		
+
 	}
 
 	// from MapComponent
@@ -109,39 +113,61 @@ public class ContextMenuComponent extends GUITouchComponent {
 	// overrides TouchComponent
 	protected void touchAt(Point point) {
 		mapCanvas.onMapContentUpdated();
-		if (selectedIndex != -1 || currentCommands != null
+		System.out.println(selectedIndex);
+		if (selectedIndex != -1 && currentCommands != null
 				&& currentCommands.length > selectedIndex) {
-			commandListener.commandAction(
-					currentCommands[selectedIndex], mapCanvas);
+			System.out.println(selectedIndex);
+			commandListener.commandAction(currentCommands[selectedIndex],
+					mapCanvas);
 		}
 		super.touchAt(point);
 	}
-	
 
+	/**
+	 * handles the touch start event by remembering the menu item touched.
+	 */
 	public boolean onTouchEventStart(int x, int y) {
-		selectedIndex = getContextMenuGUI().touchAt(x,y);
-		return super.onTouchEventStart( x, y);
+		selectedIndex = getContextMenuGUI().touchAt(x, y);
+		return super.onTouchEventStart(x, y);
 	}
-	
+
+	/**
+	 * Handles the touch cleared event by making the ContextMeny disappear.
+	 */
 	public boolean onTouchEventClear(int x, int y) {
-		if (currentPopup != null) {	
+		if (currentPopup != null) {
 			hideContextMenu();
 		}
 		return super.onTouchEventClear(x, y);
 	}
-	
+
+	/**
+	 * Handles the onDrag event by  shifting the menu items.
+	 */
 	public boolean onDragEvent(int x, int y) {
 		// Drag the menu items if visible.
-		if (isGUIVisible()) {	
+		if (isGUIVisible()) {
 			highlightGUI(false);
-			
-			getContextMenuGUI().draggedTo(x,y);
-			
+
+			getContextMenuGUI().draggedTo(x, y);
+
 			return TouchEventHandler.EVENT_CONSUMED;
 		}
-		return super.onDragEvent( x, y);
+		return super.onDragEvent(x, y);
 	}
-	
+
+	/**
+	 * Handles the Flick event by shifting the menu items based on the flick speed.
+	 */
+	public boolean onFlickEvent(int x, int y, float direction, int speed,
+			int speedX, int speedY) {
+		if (isGUIVisible()) {
+			getContextMenuGUI().flick( speedY);
+			return TouchEventHandler.EVENT_CONSUMED;
+		}
+		return super.onFlickEvent(x, y, direction, speed, speedX, speedY);
+	}
+
 	/**
 	 * When the map is updated, we need to check if one of the MapObjects held
 	 * in the Hashtable has the current focus. If so, the Context Menu is
@@ -152,7 +178,7 @@ public class ContextMenuComponent extends GUITouchComponent {
 
 	public void mapUpdated(boolean zoomChanged) {
 
-		MapObject focusMO =  MapFocus.getInstance().objectAtMapCenter(map);
+		MapObject focusMO = MapFocus.getInstance().objectAtMapCenter(map);
 
 		if (focusMO != null && popupMenus.containsKey(focusMO)) {
 			showContextMenu(focusMO);
@@ -163,22 +189,17 @@ public class ContextMenuComponent extends GUITouchComponent {
 		}
 	}
 
-
 	private void hideContextMenu() {
 		getContextMenuGUI().hidePopup();
 		currentPopup = null;
 		currentCommands = null;
 	}
 
-
 	private void showContextMenu(MapObject focusMO) {
 		currentPopup = ((ChoiceGroup) popupMenus.get(focusMO));
 		currentCommands = ((Command[]) commands.get(focusMO));
-		getContextMenuGUI().showPopUp(map.geoToPixel(map.getCenter()), currentPopup);
+		getContextMenuGUI().showPopUp(map.geoToPixel(map.getCenter()),
+				currentPopup);
 	}
-
-	
-
-	
 
 }

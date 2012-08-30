@@ -20,7 +20,6 @@ public class ContextMenuRenderer extends GUIItemRenderer {
 	private Point touchedAt;
 
 	
-	
 
 	/**
 	 * Context Menu constructor, the various inputs define the style of the
@@ -58,25 +57,47 @@ public class ContextMenuRenderer extends GUIItemRenderer {
 		contextMenu.setMaxWidth(maxWidth - POP_UP_MARGINS);
 		contextMenu.setMaxHeight((maxHeight/2) - POP_UP_MARGINS );
 	}
-	
+	/**
+	 * Sets the highight of the contextMenu, not the background.
+	 */
 	public void setHighlight(boolean highlight) {
 		contextMenu.setHighlight(highlight);
 	}
 	
+	/**
+	 * Whether a context menu itme is highlighted.
+	 */
 	public boolean isHighlight( ) {
 		return contextMenu.isHighlight();
 	}
 
+	/**
+	 * Returns the selected Context Menu item.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public int touchAt(int x, int y) {
 		touchedAt = new Point(x,y);
 		touchedAt.translate( -getAnchor().getX(), -getAnchor().getY());
 		return contextMenu.touchAt(touchedAt);		
 	}
-	
+	/**
+	 * Drags the Context menu by the offset given.
+	 * @param x
+	 * @param y
+	 */
 	public void draggedTo(int x, int y){
 		Point draggedTo =  new Point(x,y);
 		draggedTo.translate( -getAnchor().getX(), -getAnchor().getY() - touchedAt.getY());
 		contextMenu.incrementShift(- draggedTo.getY() );	
+	}
+	/**
+	 * Flicks the Context Menu by a fixed amount.
+	 * @param shift
+	 */
+	public void flick(int shift){
+		contextMenu.incrementShift(shift);
 	}
 
 

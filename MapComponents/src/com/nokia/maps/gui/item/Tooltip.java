@@ -7,7 +7,7 @@ import javax.microedition.lcdui.Graphics;
 
 /**
  * This class is responsible for writing the tooltip text to the screen,
- * wrapping around if necessary.
+ * wrapping around texts if necessary.
  */
 public class Tooltip extends PopUpGUItem {
 

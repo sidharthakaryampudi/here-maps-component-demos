@@ -8,6 +8,11 @@ import javax.microedition.location.LocationException;
 import javax.microedition.location.LocationListener;
 import javax.microedition.location.LocationProvider;
 
+/**
+ * 
+ * Wrapper around the CellId Location Provider so we can poll for location.
+ *
+ */
 public class PollingCellIdLocator extends LocationProvider  {
 
 	private TimerTask task;
@@ -17,12 +22,20 @@ public class PollingCellIdLocator extends LocationProvider  {
 	private static final int POLLING_PERIOD = 10000;
 	
 
-	
+	/**
+	 * Constructor - sets up the polling Timer.
+	 * @param cellIdLocator
+	 */
 	public PollingCellIdLocator(LocationProvider cellIdLocator) {
 		timer = new Timer();
 		this.cellIdLocator = cellIdLocator;
 	}
 	
+	/**
+	 * 
+	 * This mimics the locationUpdated interface.
+	 *
+	 */
 	private class CellIdLocationPollingTask extends TimerTask {
 
 		private final LocationProvider cellIdLocator;
@@ -46,19 +59,31 @@ public class PollingCellIdLocator extends LocationProvider  {
 	}
 
 
+	/**
+	 * Starts checking for locations.
+	 */
 	public Location getLocation(int timeout) throws LocationException,
 			InterruptedException {
 		return cellIdLocator.getLocation(timeout);
 	}
 
+	/**
+	 * Returns the state of the locator.
+	 */
 	public int getState() {
 		return cellIdLocator.getState();
 	}
 
+	/**
+	 * Resets the locator.
+	 */
 	public void reset() {
 		cellIdLocator.reset();
 	}
 
+	/**
+	 * Registers a Location Listener.
+	 */
 	public void setLocationListener(LocationListener listener, int interval,
             int timeout, int maxAge) {
 		

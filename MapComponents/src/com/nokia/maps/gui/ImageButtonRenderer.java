@@ -6,10 +6,14 @@ import javax.microedition.lcdui.Image;
 import com.nokia.maps.gui.item.BackgroundBox;
 import com.nokia.maps.gui.item.GUIData;
 
+/**
+ * 
+ * The Image button renderer is responsible for painting an image over a background.
+ *
+ */
 public class ImageButtonRenderer extends GUIItemRenderer {
 
 
-	//private final ImageButton imageButton;
 	private Image image;
 	private Image highlightImage;
 

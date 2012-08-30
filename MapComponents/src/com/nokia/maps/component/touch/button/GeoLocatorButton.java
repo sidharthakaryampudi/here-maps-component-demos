@@ -16,6 +16,11 @@ import com.nokia.maps.map.MapDisplay;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.map.Point;
 
+/**
+ * 
+ * Classic "Where-am-I" button. Calls Device Geolocator and displays it on the map. 
+ *
+ */
 public class GeoLocatorButton extends ButtonComponent implements
 		LocationListener {
 
@@ -84,6 +89,9 @@ public class GeoLocatorButton extends ButtonComponent implements
 		super.detach(map);
 	}
 
+	/**
+	 * If a location is received, the map is updated.
+	 */
 	public void locationUpdated(LocationProvider provider, Location location) {
 
 		currentLocation.setLatitude(location.getQualifiedCoordinates()

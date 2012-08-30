@@ -24,29 +24,41 @@ public abstract class GUITouchComponent extends TouchComponent {
 		return renderer;
 	}
 
+	/**
+	 * Sets/removes highlighting of the GUI element the fact the item is being pressed
+	 * @param highlight
+	 */
 	protected void highlightGUI(boolean highlight) {
 		renderer.setHighlight(highlight);
 	}
 
 	
-
+	/**
+	 * Touches a GUI Element.
+	 */
 	protected void touchAt(Point point) {
 		highlightGUI(false);
 	}
 
+	/**
+	 * Checks to see whether a GUI element is active - i.e. if a touch has not been cancelled.
+	 */
 	protected boolean isGUIActive(int x, int y) {
 		return getRenderer().isHighlight();
 	}
 
+	/**
+	 * Highlights the GUI Item when it is touched.
+	 */
 	public boolean onTouchEventStart(int x, int y) {
-		// The default here is to highlight the button.
 		highlightGUI(true);
 		return super.onTouchEventStart(x, y);
 	}
 
+	/**
+	 * Stops highlighting the GUI Item since a drag event has occured.
+	 */
 	public boolean onDragEvent(int x, int y) {
-		// The default here is to stop highlighting
-		// assuming the item is visible.
 		if (isGUIVisible()) {
 			highlightGUI(false);
 		}
@@ -62,6 +74,9 @@ public abstract class GUITouchComponent extends TouchComponent {
 		return renderer.getGUIData();
 	}
 
+	/**
+	 * Decides whether the hit area has been touched.
+	 */
 	protected boolean isGUITouched(int x, int y) {
 		if (isGUIVisible()) {
 			Point anchor = getRenderer().getAnchor();
@@ -76,10 +91,17 @@ public abstract class GUITouchComponent extends TouchComponent {
 		return false;
 	}
 
+	/**
+	 * Decides whether the GUI is visible or not.
+	 * @return
+	 */
 	protected boolean isGUIVisible() {
 		return getGUIData() != null;
 	}
-
+	
+	/**
+	 * Calculates where on the GUI item the touch event occurred.
+	 */
 	protected Point getTouchPoint(int x, int y) {
 		Point anchor = getRenderer().getAnchor();
 		return new Point(x - anchor.getX(), y - anchor.getY());

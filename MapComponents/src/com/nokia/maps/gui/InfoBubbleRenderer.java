@@ -6,6 +6,10 @@ import javax.microedition.lcdui.Graphics;
 import com.nokia.maps.gui.item.BackgroundBox;
 import com.nokia.maps.map.Point;
 
+/**
+ * The Infobubble renderer is responsible for painting clickable tooltip in
+ * an infobubble style.
+ */
 public class InfoBubbleRenderer extends TooltipRenderer {
 
 	private static final int Y_OFFSET = 20;
@@ -21,8 +25,8 @@ public class InfoBubbleRenderer extends TooltipRenderer {
 	}
 
 	/**
-	 * Tooltip constructor, with the various inputs define the style of the
-	 * tooltip.
+	 * Infobubble constructor, with the various inputs define the style of the
+	 * infobubble.
 	 * 
 	 * 
 	 * 
@@ -72,6 +76,10 @@ public class InfoBubbleRenderer extends TooltipRenderer {
 		Point draggedTo =  new Point(x,y);
 		draggedTo.translate( -getAnchor().getX(), -getAnchor().getY() - touchedAt.getY());
 		tooltip.incrementShift(- draggedTo.getY() );	
+	}
+	
+	public void flick(int shift){
+		tooltip.incrementShift(shift);
 	}
 
 	

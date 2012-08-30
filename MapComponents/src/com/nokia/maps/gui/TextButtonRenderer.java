@@ -6,6 +6,10 @@ import javax.microedition.lcdui.Graphics;
 import com.nokia.maps.gui.item.BackgroundBox;
 import com.nokia.maps.gui.item.GUIData;
 
+/**
+ * The Text Button renderer is responsible for painting a nicely styled box
+ * with text on it.
+ */
 public class TextButtonRenderer extends GUIItemRenderer {
 
 	public static final int TEXT_MARGIN = 5;

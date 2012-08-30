@@ -15,15 +15,16 @@ import com.nokia.maps.component.feedback.FocalEventListener;
 import com.nokia.maps.component.feedback.FocalObserverComponent;
 import com.nokia.maps.component.touch.CenteringComponent;
 import com.nokia.maps.component.touch.ContextMenuComponent;
+import com.nokia.maps.gesture.GestureHandler;
 import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.map.MapComponent;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.orientation.MapOrientator;
 
 /**
- * Demonstrates adding a series of Context Menus to the map. When a Map Marker is
- * centered on the screen, a context menu appears below it. The menu is clickable
- * and scrollable.
+ * Demonstrates adding a series of Context Menus to the map. When a Map Marker
+ * is centered on the screen, a context menu appears below it. The menu is
+ * clickable and scrollable.
  */
 public class ContextMenuDemo extends MapCanvas implements CommandListener,
 		FocalEventListener {
@@ -53,6 +54,7 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 
 	/**
 	 * Constructor for the Context Menu Demo.
+	 * 
 	 * @param display
 	 * @param midlet
 	 */
@@ -65,18 +67,23 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 		alert = new Alert("");
 		alert.setTimeout(1000);
 
+		// Register for flick and pinch events in the whole canvas area
+		// Potentially Context Menus handle the Flick event.
+		GestureHandler.init(this);
+
 		// Allows landscape or Portrait Mode where applicable.
 		MapOrientator.init(midlet);
 
 		// Removes unnecessary map components.
 		map.removeMapComponent(map.getMapComponent("DownloadIndicator"));
 		map.removeMapComponent(map.getMapComponent("DefaultCursor"));
-	
+
 		// Add the context Menu component FIRST so that it is processed LAST.
 		contextMenus = new ContextMenuComponent(this, this);
 		map.addMapComponent(contextMenus);
 
-		// Add the Focal component SECOND to feed the info bubble component ABOVE
+		// Add the Focal component SECOND to feed the info bubble component
+		// ABOVE
 		focalComponent = new FocalObserverComponent(this);
 		map.addMapComponent(focalComponent);
 
@@ -84,18 +91,12 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 		map.addMapComponent(new CenteringComponent(this));
 
 		// Now we can set up the markers..
-		addMarkerData(new GeoCoordinate(40.4, -3.683333, 0),
-				"Madrid");
-		addMarkerData(new GeoCoordinate(51.477811d, -0.001475d,
-				0), "London");
-		addMarkerData(new GeoCoordinate(60.170833, 24.9375, 0),
-				"Helsinki");
-		addMarkerData(
-				new GeoCoordinate(59.949444, 10.756389, 0),
-				"Oslo");
+		addMarkerData(new GeoCoordinate(40.4, -3.683333, 0), "Madrid");
+		addMarkerData(new GeoCoordinate(51.477811d, -0.001475d, 0), "London");
+		addMarkerData(new GeoCoordinate(60.170833, 24.9375, 0), "Helsinki");
+		addMarkerData(new GeoCoordinate(59.949444, 10.756389, 0), "Oslo");
 
-		addMarkerData(new GeoCoordinate(45.4375, 12.335833, 0),
-				"Venice");
+		addMarkerData(new GeoCoordinate(45.4375, 12.335833, 0), "Venice");
 
 		// Set up the map.
 		GeoBoundingBox europe = new GeoBoundingBox(
@@ -112,6 +113,7 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 
 	/**
 	 * Helper function to add markers and prime the Focal Observer with data.
+	 * 
 	 * @param coord
 	 * @param text
 	 */
@@ -124,8 +126,8 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 	}
 
 	/**
-	 * The callback from the focal observer sets up the Context Menu.
-	 * This sets up a list of Menu items with an optional title.
+	 * The callback from the focal observer sets up the Context Menu. This sets
+	 * up a list of Menu items with an optional title.
 	 */
 	public void onFocusChanged(Object focus) {
 
@@ -142,6 +144,7 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 			list1.append("item6", null);
 			list1.append("item7", null);
 			list1.append("item8", null);
+
 			contextMenus.addData(list1, commands);
 		} else {
 

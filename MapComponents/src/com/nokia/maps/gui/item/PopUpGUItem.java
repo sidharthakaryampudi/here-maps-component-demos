@@ -1,5 +1,10 @@
 package com.nokia.maps.gui.item;
 
+/**
+ * 
+ * Extended basic GUIData for pop-up GUI Items such as tooltips.
+ *
+ */
 public abstract class PopUpGUItem implements GUIData {
 	
 	private int height;

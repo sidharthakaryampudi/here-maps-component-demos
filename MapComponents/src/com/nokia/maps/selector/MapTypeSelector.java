@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.nokia.maps.selector;
 
 import java.io.IOException;
@@ -70,7 +66,7 @@ public abstract class MapTypeSelector {
 	 * Command has an associated text, it makes sense to initialise it along
 	 * with the Map Selector texts.
 	 */
-	private  Command commandButton;
+	private Command commandButton;
 
 	/**
 	 * 
@@ -95,21 +91,22 @@ public abstract class MapTypeSelector {
 	 *             if the Image resources cannot be found.
 	 */
 
-	public static final void init(Display display,
-			MapCanvas mapCanvas) throws IOException {
+	public static final void init(Display display, MapCanvas mapCanvas)
+			throws IOException {
 
 		if (selector == null) {
 			try {
 				Class clazz = Class
 						.forName("com.nokia.maps.selector.FullTouchMapTypeSelector");
-				selector = (MapTypeSelector) clazz.newInstance();			
+				selector = (MapTypeSelector) clazz.newInstance();
 			} catch (NoClassDefFoundError e) {
 				selector = new NonTouchMapTypeSelector(display);
 			} catch (Exception e) {
 				// Class.forName potentially throws some fatal error
 				// messages we won't handle them here for clarity, but wrap them
 				// instead.
-				throw new RuntimeException(e.getMessage()!= null ? e.getMessage(): e.toString());
+				throw new RuntimeException(
+						e.getMessage() != null ? e.getMessage() : e.toString());
 			}
 
 			// Base the menu texts on the locale of the device.
@@ -190,12 +187,10 @@ public abstract class MapTypeSelector {
 	 * Function to allow the calling code to invoke the Mapt Type Selector
 	 * directly rather than through the Command Button.
 	 */
-	public static final  void toggle() {
+	public static final void toggle() {
 		checkInitialized();
 		selector.setVisible(!selector.isVisible());
 	}
-
-	
 
 	/**
 	 * Method to allow all button interaction of the MapTypeSelector to be self
@@ -204,7 +199,7 @@ public abstract class MapTypeSelector {
 	 * @param c
 	 * @param d
 	 */
-	public static final  void handleCommandAction(final Command c, Displayable d) {
+	public static final void handleCommandAction(final Command c, Displayable d) {
 		checkInitialized();
 		if (c == getCommand()) {
 			selector.setVisible(true);
@@ -213,13 +208,13 @@ public abstract class MapTypeSelector {
 		}
 
 	}
-	
+
 	/**
-	 * Ensure that the Map Selector has been initialized and throw an appropriate Exception
-	 * if this is not the case.
+	 * Ensure that the Map Selector has been initialized and throw an
+	 * appropriate Exception if this is not the case.
 	 */
 	private static void checkInitialized() {
-		if (selector == null){
+		if (selector == null) {
 			throw new IllegalStateException("Selector not initialized");
 		}
 	}

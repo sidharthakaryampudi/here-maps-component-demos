@@ -19,6 +19,7 @@ import com.nokia.maps.component.touch.button.GeoLocatorButton;
 import com.nokia.maps.component.touch.button.MapTypeButton;
 import com.nokia.maps.component.touch.button.PictureInPictureButton;
 import com.nokia.maps.component.touch.button.ScaleBarButton;
+import com.nokia.maps.gesture.GestureHandler;
 import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.map.MapComponent;
 import com.nokia.maps.map.MapStandardMarker;
@@ -47,6 +48,7 @@ public class ComponentDemo extends MapCanvas implements CommandListener {
 
 	/**
 	 * Constructor for the Map Component Demo.
+	 * 
 	 * @param display
 	 * @param midlet
 	 */
@@ -55,6 +57,10 @@ public class ComponentDemo extends MapCanvas implements CommandListener {
 
 		addCommand(EXIT);
 		setCommandListener(this);
+
+		// Register for flick and pinch events in the whole canvas area
+		// Potentially Context Menus handle the Flick event.
+		GestureHandler.init(this);
 
 		// Allows landscape or Portrait Mode where applicable.
 		MapOrientator.init(midlet);
@@ -163,7 +169,7 @@ public class ComponentDemo extends MapCanvas implements CommandListener {
 		list1.append("item6", null);
 		list1.append("item7", null);
 		list1.append("item8", null);
-
+		
 		contextMenus.addData(marker, list1, commands);
 
 		map.addMapObject(marker);
@@ -222,6 +228,7 @@ public class ComponentDemo extends MapCanvas implements CommandListener {
 
 	/**
 	 * Put something up on screen since a context menu has been pressed.
+	 * 
 	 * @param c
 	 */
 	private void doAlert(Command c) {
@@ -231,4 +238,5 @@ public class ComponentDemo extends MapCanvas implements CommandListener {
 		display.setCurrent(alert);
 
 	}
+
 }

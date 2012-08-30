@@ -11,7 +11,8 @@ import com.nokia.maps.map.Point;
 
 /**
  * The focus component checks to see if an object can be found underneath the
- * key press and sets the center of the map accordingly
+ * touch press and sets the center of the map accordingly. This could also be
+ * done using the Gesture API.
  * 
  */
 public class LongTouchComponent extends TouchComponent {
@@ -27,6 +28,9 @@ public class LongTouchComponent extends TouchComponent {
 	private Command longTouchCommand;
 	private GeoCoordinate touchAt;
 
+	/**
+	 * Default constructor
+	 */
 	public LongTouchComponent() {
 		super();
 		displayable = null;
@@ -34,6 +38,12 @@ public class LongTouchComponent extends TouchComponent {
 		setCommand(null);
 	}
 
+	/**
+	 * A constructor with a ready made command to fire when a long press has occurred.
+	 * @param mapCanvas
+	 * @param commandListener
+	 * @param command
+	 */
 	public LongTouchComponent(MapCanvas mapCanvas,
 			CommandListener commandListener, Command command) {
 		super();
@@ -58,14 +68,23 @@ public class LongTouchComponent extends TouchComponent {
 		// There is no visual feedback associated with this component.
 	}
 
+	/**
+	 * Since the Long press reacts to the whole screen, the GUI is always touched.
+	 */
 	protected boolean isGUITouched(int x, int y) {
 		return true;
 	}
 
+	/**
+	 * The GUI is only active if the threshold has been exceeded.
+	 */
 	protected boolean isGUIActive(int x, int y) {
 		return System.currentTimeMillis() - time > THRESHOLD;
 	}
 
+	/**
+	 * On a touch event, fire the associated command (if we have one).
+	 */
 	protected void touchAt(Point point) {
 
 		touchAt = map.pixelToGeo(point);
@@ -76,11 +95,17 @@ public class LongTouchComponent extends TouchComponent {
 
 	}
 
+	/**
+	 * Start a time to see if the event will be handled.
+	 */
 	public boolean onTouchEventStart(int x, int y) {
 		time = System.currentTimeMillis();
 		return super.onTouchEventStart(x, y);
 	}
 
+	/**
+	 * Reset the time. Note that the event is not consumed.
+	 */
 	public boolean onDragEvent(int x, int y) {
 		time = System.currentTimeMillis();
 		return TouchEventHandler.EVENT_NOT_CONSUMED;
@@ -94,6 +119,10 @@ public class LongTouchComponent extends TouchComponent {
 		this.longTouchCommand = focusCommand;
 	}
 
+	/**
+	 * 
+	 * @return The location the last long press occurred at.
+	 */
 	public GeoCoordinate getTouchAt() {
 		return touchAt;
 	}

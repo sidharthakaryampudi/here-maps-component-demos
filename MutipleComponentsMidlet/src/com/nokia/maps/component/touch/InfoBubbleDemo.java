@@ -13,6 +13,7 @@ import com.nokia.maps.component.feedback.FocalEventListener;
 import com.nokia.maps.component.feedback.FocalObserverComponent;
 import com.nokia.maps.component.touch.CenteringComponent;
 import com.nokia.maps.component.touch.InfoBubbleComponent;
+import com.nokia.maps.gesture.GestureHandler;
 import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.map.MapComponent;
 import com.nokia.maps.map.MapStandardMarker;
@@ -56,6 +57,10 @@ public class InfoBubbleDemo extends MapCanvas implements CommandListener,
 
 		// Allows landscape or Portrait Mode where applicable.
 		MapOrientator.init(midlet);
+		
+		// Register for flick and pinch events in the whole canvas area.
+		// Potentially Infobubbles handle the Flick event.
+		GestureHandler.init(this);
 
 		// Removes unnecessary map components.
 		// the default cursor will be unnecessary since the Infobubble

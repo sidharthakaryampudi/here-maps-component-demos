@@ -13,7 +13,7 @@ import com.nokia.maps.map.Point;
 
 /**
  * The focus component checks to see if an object can be found underneath the
- * key press and sets the center of the map accordingly
+ * touch press and sets the center of the map accordingly
  * 
  */
 public class CenteringComponent extends TouchComponent {
@@ -25,6 +25,10 @@ public class CenteringComponent extends TouchComponent {
 	private final CommandListener commandListener;
 	private  Command focusCommand;
 
+	/**
+	 * Constructor which does not have any associated command
+	 * @param mapListener
+	 */
 	public CenteringComponent(MapListener mapListener) {
 		super();
 		this.mapListener = mapListener;
@@ -33,6 +37,13 @@ public class CenteringComponent extends TouchComponent {
 		setFocusCommand(null);
 	}
 
+	/**
+	 * Constructor which will cause a command to fire if the object at
+	 * the centre of the map is touched.
+	 * @param mapCanvas
+	 * @param commandListener
+	 * @param focusCommand
+	 */
 	public CenteringComponent(MapCanvas mapCanvas,
 			CommandListener commandListener, Command focusCommand) {
 		super();

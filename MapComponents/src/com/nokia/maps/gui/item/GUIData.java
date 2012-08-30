@@ -4,7 +4,7 @@ import javax.microedition.lcdui.Graphics;
 
 /**
  * 
- * A <code>GUIItem</code> is a low level Graphic rendered UI class
+ * A <code>GUIData</code> is a low level Graphic rendered UI class
  * which is rendered on screen.
  *
  */

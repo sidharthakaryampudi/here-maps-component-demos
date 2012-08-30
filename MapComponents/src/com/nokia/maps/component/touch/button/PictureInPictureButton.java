@@ -105,6 +105,11 @@ public class PictureInPictureButton extends ButtonComponent {
 		return ID;
 	}
 
+	/**
+	 * Obtains the relevant RESTful map URL to display in Pic-in-Pic.
+	 * @param map
+	 * @return
+	 */
 	private String getMapURL(MapDisplay map) {
 
 		int maxZoom = (int) Math.max(map.getZoomLevel() - 5,

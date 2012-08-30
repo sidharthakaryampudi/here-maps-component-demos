@@ -6,6 +6,11 @@ import javax.microedition.lcdui.Graphics;
 
 import com.nokia.maps.map.Point;
 
+/**
+ * 
+ * Data defining the Context Menu items.
+ * 
+ */
 public class ContextMenu extends PopUpGUItem {
 
 	private ChoiceGroup menuItems;
@@ -31,7 +36,11 @@ public class ContextMenu extends PopUpGUItem {
 
 
 	
-
+	/**
+	 * 
+	 * @param point
+	 * @return Which context menu item was pressed.
+	 */
 	public int touchAt(Point point) {
 		selectedIndex = -1;
 

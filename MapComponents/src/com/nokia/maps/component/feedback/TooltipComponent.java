@@ -12,7 +12,7 @@ import com.nokia.maps.map.MapDisplay;
 import com.nokia.maps.map.MapObject;
 
 /**
- * A Custom MapComponent which displays a Tooltip.
+ * A Custom MapComponent which displays a Tooltip. Tooltips are static text and cannot be clicked.
  */
 public class TooltipComponent implements MapComponent {
 

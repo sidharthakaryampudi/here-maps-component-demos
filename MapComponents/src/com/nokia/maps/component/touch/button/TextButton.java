@@ -66,8 +66,4 @@ public class TextButton extends ButtonComponent {
 		return ID;
 	}	
 	
-	/*protected void touchAt(Point point) {
-			
-	}*/
-
 }

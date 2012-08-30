@@ -4,6 +4,11 @@ import javax.microedition.lcdui.Graphics;
 
 import com.nokia.maps.map.Point;
 
+/**
+ * 
+ * Data defining the background of a GUI Item.
+ *
+ */
 public class BackgroundBox {
 	
 	public static final int SMALL_CORNER_ARC = 5;
