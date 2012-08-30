@@ -10,6 +10,7 @@ import javax.microedition.lcdui.*;
  * KML loading Midlet.
  */
 public class KMLMIDlet extends MIDlet {
+
     /**
      * This method is called when the application is started. It sets the application
      * context, initialises the display  and starts up the demo.

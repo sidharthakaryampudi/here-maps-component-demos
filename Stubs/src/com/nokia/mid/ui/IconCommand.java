@@ -1,7 +1,9 @@
 package com.nokia.mid.ui;
 
+
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Image;
+
 
 public class IconCommand extends Command {
 
@@ -12,37 +14,37 @@ public class IconCommand extends Command {
     public static final int ICON_OK = 4;
 
     public IconCommand(String shortLabel, String longLabel, int commandType, int priority, int iconId) {
-        //compiled code
+        // compiled code
         super(longLabel, iconId, iconId);
     }
 
     public IconCommand(String label, int commandType, int priority, int iconId) {
-        //compiled code
-    	super(label, iconId, iconId);
+        // compiled code
+        super(label, iconId, iconId);
     }
 
     public IconCommand(String shortLabel, String longLabel, Image unselectedIcon, Image selectedIcon, int commandType, int priority) {
-        //compiled code
-    	super(longLabel, longLabel, priority, priority);
+        // compiled code
+        super(longLabel, longLabel, priority, priority);
     }
 
     public IconCommand(String label, Image unselectedIcon, Image selectedIcon, int commandType, int priority) {
-        //compiled code
-    	super(label, priority, priority);
+        // compiled code
+        super(label, priority, priority);
     }
 
     public int getIconId() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public Image getUnselectedIcon() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public Image getSelectedIcon() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 }

@@ -22,14 +22,12 @@ public class KMLBalloonView extends Form {
      * @return <code>true</code> if the feature has an associated name or
      * description. <code>false</code> otherwise.
      */
-    public static boolean isViewable(Feature feature){
-        if (feature == null){
+    public static boolean isViewable(Feature feature) {
+        if (feature == null) {
             return false;
         }
 
-        String name = feature.getName() == null
-                ? ""
-                : feature.getName();
+        String name = feature.getName() == null ? "" : feature.getName();
         String description = feature.getDescription() == null
                 ? ""
                 : feature.getDescription();

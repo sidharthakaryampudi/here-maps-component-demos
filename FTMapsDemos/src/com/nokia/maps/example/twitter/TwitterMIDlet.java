@@ -11,6 +11,7 @@ import javax.microedition.midlet.MIDletStateChangeException;
  * Twitter feed map MIDlet
  */
 public class TwitterMIDlet extends MIDlet {
+
     /**
      *  Clean up goes here. Nothing to do.
      *
@@ -18,7 +19,7 @@ public class TwitterMIDlet extends MIDlet {
      */
     protected void destroyApp(boolean arg0) throws MIDletStateChangeException {}
 
-     /**
+    /**
      *  Pause the app - nothing to do.
      */
     protected void pauseApp() {}

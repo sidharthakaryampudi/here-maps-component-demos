@@ -26,8 +26,8 @@ import com.nokia.maps.routing.WaypointParameterList;
 public class RoutingDemo extends Base implements RouteListener {
 
     private final Command ADD = new Command("Add waypoint", Command.OK, 3);
-    private final Command CALCULATE = new Command("Calculate route", Command.ITEM,
-            3);
+    private final Command CALCULATE = new Command("Calculate route",
+            Command.ITEM, 3);
     private final Command CALCULATE_WITH_MODE = new Command(
             "Calculate bicycle route ", Command.ITEM, 3);
     private final Command RESET = new Command("Reset", Command.ITEM, 3);
@@ -41,10 +41,10 @@ public class RoutingDemo extends Base implements RouteListener {
         super(display, midlet);
 
         map.setState(new MapDisplayState(new GeoCoordinate(51.477, 0.0, 0), 15));
-        //addCommand(ADD);
+        // addCommand(ADD);
         
-         longTouch = new  LongTouchComponent(this, this, ADD);
-		 map.addMapComponent(longTouch);
+        longTouch = new  LongTouchComponent(this, this, ADD);
+        map.addMapComponent(longTouch);
     }
 
     /**
@@ -52,10 +52,11 @@ public class RoutingDemo extends Base implements RouteListener {
      * point out the location.
      */
     private void addWaypoint(GeoCoordinate gc) {
-    	if (gc == null){
-    		Point center = new Point(map.getWidth() / 2, map.getHeight() / 2);
-         	gc = map.pixelToGeo(center);
-    	}
+        if (gc == null) {
+            Point center = new Point(map.getWidth() / 2, map.getHeight() / 2);
+
+            gc = map.pixelToGeo(center);
+        }
         wpl.addCoordinate(gc);
         map.addMapObject(
                 mapFactory.createStandardMarker(gc, 10, null,
@@ -115,6 +116,7 @@ public class RoutingDemo extends Base implements RouteListener {
         removeCommand(CALCULATE_WITH_MODE);
         calculateRoute(modes);
     }
+
     /**
      * Callback function initiated when a route request has successfully completed.
      * @param request the route request that initiated the service call.
@@ -132,6 +134,7 @@ public class RoutingDemo extends Base implements RouteListener {
 
         progressEnd();
     }
+
     /**
      * Callback function should the Route Request fail for some reason.
      * @param request the initiating route request.

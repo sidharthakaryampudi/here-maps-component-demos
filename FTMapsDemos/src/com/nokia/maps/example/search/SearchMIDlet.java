@@ -23,6 +23,7 @@ public class SearchMIDlet extends MIDlet {
      *  Pause the app - nothing to do.
      */
     protected void pauseApp() {}
+
     /**
      * This method is called when the application is started. It sets the application
      * context, initialises the display  and starts up the demo.

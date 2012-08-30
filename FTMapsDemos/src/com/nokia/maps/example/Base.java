@@ -39,10 +39,9 @@ public class Base extends MapCanvas implements CommandListener {
     protected String onProgressFail; // shown to user if error happens during a command
     private InfoNote progress = new InfoNote();
         
-    
-    protected  InfoBubbleComponent infoBubble;
-	protected  ContextMenuComponent contextMenus;
-	protected CenteringComponent centeringComponent;
+    protected InfoBubbleComponent infoBubble;
+    protected ContextMenuComponent contextMenus;
+    protected CenteringComponent centeringComponent;
 
     /**
      * This isn't the correct place to put this but this method is added here
@@ -76,40 +75,39 @@ public class Base extends MapCanvas implements CommandListener {
         addCommand(EXIT);
         setCommandListener(this);
    
-		addFTBehaviour();
-	}
+        addFTBehaviour();
+    }
 
-	private void addFTBehaviour(){
-		String keyboardType = System.getProperty("com.nokia.keyboard.type");
+    private void addFTBehaviour() {
+        String keyboardType = System.getProperty("com.nokia.keyboard.type");
+
         if (keyboardType.equals("None")) {
             // full touch device detected
             com.nokia.mid.ui.VirtualKeyboard.hideOpenKeypadCommand(true);
         }
 
-		MapOrientator.init(midlet);
+        MapOrientator.init(midlet);
 		
-		centeringComponent = new CenteringComponent(this, this, null);
-		map.addMapComponent(centeringComponent);
+        centeringComponent = new CenteringComponent(this, this, null);
+        map.addMapComponent(centeringComponent);
 
-		infoBubble = new InfoBubbleComponent(this, this);
-		map.addMapComponent(infoBubble);
+        infoBubble = new InfoBubbleComponent(this, this);
+        map.addMapComponent(infoBubble);
 
-		contextMenus = new ContextMenuComponent(this, this);
-		map.addMapComponent(contextMenus);
+        contextMenus = new ContextMenuComponent(this, this);
+        map.addMapComponent(contextMenus);
 		
-		map.removeMapComponent(map.getMapComponent("DefaultCursor"));
-		map.removeMapComponent(map.getMapComponent("DownloadIndicator"));
+        map.removeMapComponent(map.getMapComponent("DefaultCursor"));
+        map.removeMapComponent(map.getMapComponent("DownloadIndicator"));
 		
+        // Ensure that the Zoom Buttons are at the back of the display queue.
+        MapComponent component = map.getMapComponent("ZoomImgComponent");
+
+        map.removeMapComponent(component);
+        map.addMapComponent(component);
 		
-		// Ensure that the Zoom Buttons are at the back of the display queue.
-		MapComponent component = map.getMapComponent("ZoomImgComponent");
-		map.removeMapComponent(component);
-		map.addMapComponent(component);
-		
-		
-	}
+    }
     
-
     /**
      * from CommandListener
      */
@@ -206,9 +204,7 @@ public class Base extends MapCanvas implements CommandListener {
      * This means that the all tiles are present and completely rendered with
      * all objects present.
      */
-    public void onMapContentComplete() {
-
-    }
+    public void onMapContentComplete() {}
 
     protected class InfoNote {
 

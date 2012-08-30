@@ -1,5 +1,6 @@
 package com.nokia.maps.component.touch.button;
 
+
 import java.io.IOException;
 
 import javax.microedition.lcdui.Graphics;
@@ -16,108 +17,107 @@ import com.nokia.maps.map.MapDisplay;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.map.Point;
 
+
 /**
  * 
  * Classic "Where-am-I" button. Calls Device Geolocator and displays it on the map. 
  *
  */
 public class GeoLocatorButton extends ButtonComponent implements
-		LocationListener {
+        LocationListener {
 
-	public static final String ID = "geoLocator";
+    public static final String ID = "geoLocator";
 
-	private static final float THRESHOLD_DISTANCE = 100f;
+    private static final float THRESHOLD_DISTANCE = 100f;
 
-	private final Image locatorOn;
-	private final Image locatorOff;
+    private final Image locatorOn;
+    private final Image locatorOff;
 
-	private boolean locating;
+    private boolean locating;
 
-	private final MapStandardMarker youAreHereMarker;
-	private final MapCanvas mapCanvas;
+    private final MapStandardMarker youAreHereMarker;
+    private final MapCanvas mapCanvas;
 
-	private final GeoCoordinate currentLocation = new GeoCoordinate(0, 0,
-			Float.NaN);
+    private final GeoCoordinate currentLocation = new GeoCoordinate(0, 0,
+            Float.NaN);
 
-	/**
-	 * Constructor for the Map Type Button.
-	 * 
-	 * @param display
-	 * @param mapCanvas
-	 * @throws IOException
-	 */
-	public GeoLocatorButton(MapCanvas mapCanvas) throws IOException {
-		super(Graphics.TOP | Graphics.RIGHT, new ImageButtonRenderer(
-				Image.createImage("/locate_off.png"),
-				Image.createImage("/locate_e.png")));
+    /**
+     * Constructor for the Map Type Button.
+     * 
+     * @param display
+     * @param mapCanvas
+     * @throws IOException
+     */
+    public GeoLocatorButton(MapCanvas mapCanvas) throws IOException {
+        super(Graphics.TOP | Graphics.RIGHT,
+                new ImageButtonRenderer(Image.createImage("/locate_off.png"),
+                Image.createImage("/locate_e.png")));
 
-		locatorOn = Image.createImage("/locate_on.png");
-		locatorOff = Image.createImage("/locate_off.png");
+        locatorOn = Image.createImage("/locate_on.png");
+        locatorOff = Image.createImage("/locate_off.png");
 
-		youAreHereMarker = mapCanvas.getMapFactory().createStandardMarker(
-				currentLocation, 8, "", MapStandardMarker.HEXAGON);
-		youAreHereMarker.setColor(0xAA008000);
-		this.mapCanvas = mapCanvas;
-	}
+        youAreHereMarker = mapCanvas.getMapFactory().createStandardMarker(
+                currentLocation, 8, "", MapStandardMarker.HEXAGON);
+        youAreHereMarker.setColor(0xAA008000);
+        this.mapCanvas = mapCanvas;
+    }
 
-	/**
-	 *  Toggles the geolocator.
-	 */
-	protected void touchAt(Point point) {
-		locating = !locating;
+    /**
+     *  Toggles the geolocator.
+     */
+    protected void touchAt(Point point) {
+        locating = !locating;
 
-		getImageGUI().setImage(locating ? locatorOn : locatorOff);
-		if (locating) {
-			GeoLocator.getInstance().setLocationListener(this);
-		} else {
-			GeoLocator.getInstance().setLocationListener(null);
-			map.removeMapObject(youAreHereMarker);
-		}
-		super.touchAt(point);
-	}
+        getImageGUI().setImage(locating ? locatorOn : locatorOff);
+        if (locating) {
+            GeoLocator.getInstance().setLocationListener(this);
+        } else {
+            GeoLocator.getInstance().setLocationListener(null);
+            map.removeMapObject(youAreHereMarker);
+        }
+        super.touchAt(point);
+    }
 
-	private ImageButtonRenderer getImageGUI() {
-		return ((ImageButtonRenderer) getRenderer());
-	}
+    private ImageButtonRenderer getImageGUI() {
+        return ((ImageButtonRenderer) getRenderer());
+    }
 
-	public String getId() {
-		return ID;
-	}
+    public String getId() {
+        return ID;
+    }
 
-	public void detach(MapDisplay map) {
-		map.removeMapObject(youAreHereMarker);
-		super.detach(map);
-	}
+    public void detach(MapDisplay map) {
+        map.removeMapObject(youAreHereMarker);
+        super.detach(map);
+    }
 
-	/**
-	 * If a location is received, the map is updated.
-	 */
-	public void locationUpdated(LocationProvider provider, Location location) {
+    /**
+     * If a location is received, the map is updated.
+     */
+    public void locationUpdated(LocationProvider provider, Location location) {
 
-		currentLocation.setLatitude(location.getQualifiedCoordinates()
-				.getLatitude());
-		currentLocation.setLongitude(location.getQualifiedCoordinates()
-				.getLongitude());
-		currentLocation.setAltitude(location.getQualifiedCoordinates()
-				.getAltitude());
+        currentLocation.setLatitude(
+                location.getQualifiedCoordinates().getLatitude());
+        currentLocation.setLongitude(
+                location.getQualifiedCoordinates().getLongitude());
+        currentLocation.setAltitude(
+                location.getQualifiedCoordinates().getAltitude());
 
-		if (locating) {
-			System.out.println(map.getCenter().distanceTo(currentLocation));
-			if (map.getCenter().distanceTo(currentLocation) > THRESHOLD_DISTANCE) {
-				youAreHereMarker.setCoordinate(currentLocation);
-				map.removeMapObject(youAreHereMarker);
-				map.addMapObject(youAreHereMarker);
-				map.setCenter(currentLocation);
-				// Ensure that the Map is refreshed with the new Map State.
-				mapCanvas.onMapContentUpdated();
-			}
-		}
+        if (locating) {
+            System.out.println(map.getCenter().distanceTo(currentLocation));
+            if (map.getCenter().distanceTo(currentLocation) > THRESHOLD_DISTANCE) {
+                youAreHereMarker.setCoordinate(currentLocation);
+                map.removeMapObject(youAreHereMarker);
+                map.addMapObject(youAreHereMarker);
+                map.setCenter(currentLocation);
+                // Ensure that the Map is refreshed with the new Map State.
+                mapCanvas.onMapContentUpdated();
+            }
+        }
 
-	}
+    }
 
-	public void providerStateChanged(LocationProvider arg0, int arg1) {
-		// TODO Auto-generated method stub
-
-	}
+    public void providerStateChanged(LocationProvider arg0, int arg1) {// TODO Auto-generated method stub
+    }
 
 }

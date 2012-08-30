@@ -1,5 +1,6 @@
 package com.nokia.mid.ui.orientation;
 
+
 public class Orientation {
 
     public static final int ORIENTATION_PORTRAIT = 1;
@@ -8,32 +9,32 @@ public class Orientation {
     public static final int ORIENTATION_LANDSCAPE_180 = 4;
 
     public Orientation() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public static void setAppOrientation(int newAppOrientation) {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public static int getAppOrientation() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public static int getDisplayOrientation() {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public static void addOrientationListener(OrientationListener listener) {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 
     public static void removeOrientationListener(OrientationListener listener) {
-        //compiled code
+        // compiled code
         throw new RuntimeException("Compiled Code");
     }
 }

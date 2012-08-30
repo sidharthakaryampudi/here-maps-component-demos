@@ -26,13 +26,13 @@ import com.nokia.maps.kml.component.KMLResultSet;
  */
 public class KMLDemo extends Base implements KMLEventListener, KMLParserListener, KMLFactoryListener {
 
-    private final static Command SHOW_BALLOON_VIEW = new Command("Details", Command.OK, 1);
-    private final static Command SHOW_LIST_VIEW = new Command("List", Command.ITEM,
-            2);
+    private final static Command SHOW_BALLOON_VIEW = new Command("Details",
+            Command.OK, 1);
+    private final static Command SHOW_LIST_VIEW = new Command("List",
+            Command.ITEM, 2);
     private Feature currentPlaceMark = null;
     private KMLListView listView = null;
     private final TooltipComponent tooltips;
-
 
     /**
      * Creates new canvas.
@@ -41,7 +41,7 @@ public class KMLDemo extends Base implements KMLEventListener, KMLParserListener
         super(display, midlet);
         
         tooltips = new TooltipComponent();
-		map.addMapComponent(tooltips);
+        map.addMapComponent(tooltips);
 
         // Parse the KML Document
         KMLManager parser = KMLManager.getInstance();
@@ -52,7 +52,7 @@ public class KMLDemo extends Base implements KMLEventListener, KMLParserListener
 
         parser.parse(getClass().getResourceAsStream("/earthquake.kml"), this);
         
-       centeringComponent.setFocusCommand( SHOW_BALLOON_VIEW);
+        centeringComponent.setFocusCommand(SHOW_BALLOON_VIEW);
 
     }
     
@@ -126,10 +126,10 @@ public class KMLDemo extends Base implements KMLEventListener, KMLParserListener
         currentPlaceMark = placeMark;
        
         if (KMLBalloonView.isViewable(currentPlaceMark)) {
-        	 tooltips.add(placeMark.getName());
+            tooltips.add(placeMark.getName());
             addCommand(SHOW_BALLOON_VIEW);
         } else { // no tweet under cursor
-        	tooltips.clear();
+            tooltips.clear();
             removeCommand(SHOW_BALLOON_VIEW);
         }
     }
@@ -160,6 +160,7 @@ public class KMLDemo extends Base implements KMLEventListener, KMLParserListener
      */
     private void showPlaceMarkDetails() {
         KMLBalloonView balloonView = new KMLBalloonView(currentPlaceMark);
+
         balloonView.setCommandListener(this);
         display.setCurrent(balloonView);
     }

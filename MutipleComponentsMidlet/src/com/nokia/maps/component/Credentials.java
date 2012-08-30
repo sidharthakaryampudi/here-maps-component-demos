@@ -1,11 +1,12 @@
 package com.nokia.maps.component;
 
+
 import com.nokia.maps.common.ApplicationContext;
+
 
 public class Credentials {
 	
-	
-	public static void InitialiseAuth() {
+    public static void InitialiseAuth() {
 
         // You must get your own app_id and token by registering at
         // https://api.developer.nokia.com/ovi-api/ui/registration

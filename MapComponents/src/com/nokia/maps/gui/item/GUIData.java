@@ -1,6 +1,8 @@
 package com.nokia.maps.gui.item;
 
+
 import javax.microedition.lcdui.Graphics;
+
 
 /**
  * 
@@ -10,24 +12,24 @@ import javax.microedition.lcdui.Graphics;
  */
 public interface GUIData {
 
-	/**
-	 * Draws the GUI item onto the display.
-	 * 
-	 * @param g
-	 * @param x
-	 * @param y
-	 * @param anchor
-	 */
-	void paint(Graphics g, int x, int y, int anchor);
+    /**
+     * Draws the GUI item onto the display.
+     * 
+     * @param g
+     * @param x
+     * @param y
+     * @param anchor
+     */
+    void paint(Graphics g, int x, int y, int anchor);
 
-	/**
-	 * @return the width of the GUI item in pixels
-	 */
-	int getWidth();
+    /**
+     * @return the width of the GUI item in pixels
+     */
+    int getWidth();
 
-	/**
-	 * @return the height of the GUI item in pixels.
-	 */
-	int getHeight();
+    /**
+     * @return the height of the GUI item in pixels.
+     */
+    int getHeight();
 
 }
