@@ -3,18 +3,18 @@ Nokia-MIDlet-App-Orientation: manual
 MicroEdition-Configuration: CLDC-1.0
 MIDlet-Jar-URL: MultipleComponents.jar
 MIDlet-Name: Components
-MIDlet-9: Pic-In-Pic,,com.nokia.maps.example.map.PicInPicMidlet
-MIDlet-8: Map Type,,com.nokia.maps.example.map.MapTypeButtonMidlet
-MIDlet-7: Infobubble,,com.nokia.maps.example.map.InfoBubbleMidlet
-MIDlet-6: Long Press,,com.nokia.maps.example.map.LongTouchMidlet
-MIDlet-5: FocalObserver,,com.nokia.maps.example.map.FocalObserverMidlet
-MIDlet-4: Geolocator,,com.nokia.maps.example.map.GeolocatorMidlet
-MIDlet-3: Context Menu,,com.nokia.maps.example.map.ContextMenuMidlet
-MIDlet-2: Centerer,,com.nokia.maps.example.map.CenteringMidlet
-MIDlet-1: Components,,com.nokia.maps.example.map.ComponentMidlet
+MIDlet-9: Pic-In-Pic,,com.nokia.maps.component.touch.button.PicInPicMidlet
+MIDlet-8: Map Type,,com.nokia.maps.component.touch.button.MapTypeButtonMidlet
+MIDlet-7: Infobubble,,com.nokia.maps.component.touch.InfoBubbleMidlet
+MIDlet-6: Long Press,,com.nokia.maps.component.touch.LongTouchMidlet
+MIDlet-5: FocalObserver,,com.nokia.maps.component.feedback.FocalObserverMidlet
+MIDlet-4: Geolocator,,com.nokia.maps.component.touch.button.GeolocatorMidlet
+MIDlet-3: Context Menu,,com.nokia.maps.component.touch.ContextMenuMidlet
+MIDlet-2: Centerer,,com.nokia.maps.component.touch.CenteringMidlet
+MIDlet-1: Components,,com.nokia.maps.component.ComponentMidlet
 MIDlet-Permissions: javax.microedition.io.Connector.http
 MicroEdition-Profile: MIDP-2.1
 MIDlet-Vendor: MIDlet Suite Vendor
-MIDlet-12: Restrict Map,,com.nokia.maps.example.map.RestrictMidlet
-MIDlet-11: Tooltips Demo,,com.nokia.maps.example.map.TooltipMidlet
-MIDlet-10: Scale Bar,,com.nokia.maps.example.map.ScaleBarMidlet
+MIDlet-12: Restrict Map,,com.nokia.maps.component.feedback.RestrictMidlet
+MIDlet-11: Tooltips Demo,,com.nokia.maps.component.feedback.TooltipMidlet
+MIDlet-10: Scale Bar,,com.nokia.maps.component.touch.button.ScaleBarMidlet
