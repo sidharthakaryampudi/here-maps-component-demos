@@ -18,7 +18,7 @@ public class GestureHandler {
     protected GestureHandler() {// I'm a Singleton.
     }
 
-    public static final void init(MapCanvas canvas) {
+    public static final boolean init(MapCanvas canvas) {
 
         if (gesture == null) {
 
@@ -38,6 +38,8 @@ public class GestureHandler {
             gesture.setMapCanvas(canvas);
 
         }
+        
+        return gesture.isGestureSupported();
 
     }
 
@@ -47,6 +49,10 @@ public class GestureHandler {
 
     protected void setMapCanvas(MapCanvas mapCanvas) {
         this.mapCanvas = mapCanvas;
+    }
+    
+    public boolean isGestureSupported(){
+    	return false;
     }
 
 }

@@ -51,7 +51,7 @@ public abstract class GUITouchComponent extends TouchComponent {
     /**
      * Highlights the GUI Item when it is touched.
      */
-    public boolean onTouchEventStart(int x, int y) {
+    protected boolean onTouchEventStart(int x, int y) {
         highlightGUI(true);
         return super.onTouchEventStart(x, y);
     }
@@ -59,7 +59,7 @@ public abstract class GUITouchComponent extends TouchComponent {
     /**
      * Stops highlighting the GUI Item since a drag event has occured.
      */
-    public boolean onDragEvent(int x, int y) {
+    protected boolean onDragEvent(int x, int y) {
         if (isGUIVisible()) {
             highlightGUI(false);
         }

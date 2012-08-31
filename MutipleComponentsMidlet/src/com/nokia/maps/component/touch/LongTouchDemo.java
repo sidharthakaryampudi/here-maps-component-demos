@@ -11,7 +11,8 @@ import javax.microedition.midlet.MIDlet;
 
 import com.nokia.maps.common.GeoBoundingBox;
 import com.nokia.maps.common.GeoCoordinate;
-import com.nokia.maps.component.touch.LongTouchComponent;
+import com.nokia.maps.component.touch.TimerLongTouchComponent;
+import com.nokia.maps.gesture.GestureHandler;
 import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.orientation.MapOrientator;
 
@@ -47,9 +48,16 @@ public class LongTouchDemo extends MapCanvas implements CommandListener {
         map.removeMapComponent(map.getMapComponent("DownloadIndicator"));
         map.removeMapComponent(map.getMapComponent("DefaultCursor"));
 
+        // Register for long press events in the whole canvas area
         // Create the long Touch component. This class will handle the
         // LONG_TOUCH command.
-        longTouch = new LongTouchComponent(this, this, LONG_TOUCH);
+        
+		if (GestureHandler.init(this)) {
+			longTouch = new LongTouchComponent(this, this, LONG_TOUCH);
+		} else {
+			longTouch = new TimerLongTouchComponent(this, this, LONG_TOUCH);
+		}
+        
         map.addMapComponent(longTouch);
 
         // Set up the map.

@@ -128,7 +128,7 @@ public class ContextMenuComponent extends GUITouchComponent {
     /**
      * handles the touch start event by remembering the menu item touched.
      */
-    public boolean onTouchEventStart(int x, int y) {
+    protected boolean onTouchEventStart(int x, int y) {
         selectedIndex = getContextMenuGUI().touchAt(x, y);
         return super.onTouchEventStart(x, y);
     }
@@ -136,7 +136,7 @@ public class ContextMenuComponent extends GUITouchComponent {
     /**
      * Handles the touch cleared event by making the ContextMeny disappear.
      */
-    public boolean onTouchEventClear(int x, int y) {
+    protected boolean onTouchEventClear(int x, int y) {
         if (currentPopup != null) {
             hideContextMenu();
         }
@@ -146,7 +146,7 @@ public class ContextMenuComponent extends GUITouchComponent {
     /**
      * Handles the onDrag event by  shifting the menu items.
      */
-    public boolean onDragEvent(int x, int y) {
+    protected boolean onDragEvent(int x, int y) {
         // Drag the menu items if visible.
         if (isGUIVisible()) {
             highlightGUI(false);
@@ -161,7 +161,7 @@ public class ContextMenuComponent extends GUITouchComponent {
     /**
      * Handles the Flick event by shifting the menu items based on the flick speed.
      */
-    public boolean onFlickEvent(int x, int y, float direction, int speed,
+    protected boolean onFlickEvent(int x, int y, float direction, int speed,
             int speedX, int speedY) {
         if (isGUIVisible()) {
             getContextMenuGUI().flick(speedY);

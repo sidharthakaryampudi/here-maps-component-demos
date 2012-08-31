@@ -7,7 +7,9 @@ import javax.microedition.midlet.MIDlet;
 
 import com.nokia.maps.common.GeoCoordinate;
 import com.nokia.maps.component.touch.LongTouchComponent;
+import com.nokia.maps.component.touch.TimerLongTouchComponent;
 import com.nokia.maps.example.Base;
+import com.nokia.maps.gesture.GestureHandler;
 import com.nokia.maps.map.MapDisplayState;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.map.Point;
@@ -43,7 +45,11 @@ public class RoutingDemo extends Base implements RouteListener {
         map.setState(new MapDisplayState(new GeoCoordinate(51.477, 0.0, 0), 15));
         // addCommand(ADD);
         
-        longTouch = new  LongTouchComponent(this, this, ADD);
+        if (GestureHandler.init(this)) {
+			longTouch = new LongTouchComponent(this, this, ADD);
+		} else {
+			longTouch = new TimerLongTouchComponent(this, this, ADD);
+		}
         map.addMapComponent(longTouch);
     }
 

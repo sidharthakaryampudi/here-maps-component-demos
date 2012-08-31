@@ -117,7 +117,7 @@ public class InfoBubbleComponent extends GUITouchComponent {
     /**
      * Initiates the touch event.
      */
-    public boolean onTouchEventStart(int x, int y) {
+    protected boolean onTouchEventStart(int x, int y) {
         getInfobubbleGUI().touchAt(x, y);
         return super.onTouchEventStart(x, y);
     }
@@ -125,7 +125,7 @@ public class InfoBubbleComponent extends GUITouchComponent {
     /**
      * Potentially drags the text within the Infobubble.
      */
-    public boolean onDragEvent(int x, int y) {
+    protected boolean onDragEvent(int x, int y) {
         // Drag the menu items if visible.
         if (isGUIVisible()) {			
             getInfobubbleGUI().draggedTo(x, y);
@@ -136,7 +136,7 @@ public class InfoBubbleComponent extends GUITouchComponent {
     /**
      * Flicks the text within the infobubble based on the speed of the flick.
      */
-    public boolean onFlickEvent(int x, int y, float direction, int speed,
+    protected boolean onFlickEvent(int x, int y, float direction, int speed,
             int speedX, int speedY) {
         if (isGUIVisible()) {
             getInfobubbleGUI().flick(speedY);
@@ -148,7 +148,7 @@ public class InfoBubbleComponent extends GUITouchComponent {
     /**
      * Hides the infobubble since the clear event has occurred.
      */
-    public boolean onTouchEventClear(int x, int y) {
+    protected boolean onTouchEventClear(int x, int y) {
         hideInfoBubble();
         return super.onTouchEventClear(x, y);
     }

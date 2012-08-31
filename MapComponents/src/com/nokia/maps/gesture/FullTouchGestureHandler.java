@@ -1,6 +1,7 @@
 package com.nokia.maps.gesture;
 
 
+import com.nokia.maps.component.touch.ExtendedEventListener;
 import com.nokia.maps.component.touch.TouchComponent;
 import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.map.MapComponent;
@@ -41,6 +42,13 @@ public class FullTouchGestureHandler extends GestureHandler implements
             supportedGestures = supportedGestures
                     | GestureInteractiveZone.GESTURE_FLICK;
         }
+        
+        
+        if (GestureInteractiveZone.isSupported(
+                GestureInteractiveZone.GESTURE_LONG_PRESS)) {
+            supportedGestures = supportedGestures
+                    | GestureInteractiveZone.GESTURE_LONG_PRESS;
+        }
 
         // Register the active Zone - i.e. the whole Canvas.
         GestureInteractiveZone gestureZone = new GestureInteractiveZone(
@@ -62,7 +70,7 @@ public class FullTouchGestureHandler extends GestureHandler implements
         while (i > 0) {
             i--;
             if (components[i] instanceof TouchComponent) {
-                if (doGesture(event, (TouchComponent) components[i])) {
+                if (doGesture(event, ((TouchComponent) components[i]).getExtendedEventListener())) {
                     break;
                 }
             }
@@ -73,10 +81,10 @@ public class FullTouchGestureHandler extends GestureHandler implements
     /**
      * Pass the details of an event to any registered  TouchComponent
      * @param event
-     * @param component
+     * @param listener
      * @return <code>true</code> if the Event has been consumed, <code>false</code> otherwise.
      */
-    private boolean doGesture(GestureEvent event, TouchComponent component) {
+    private boolean doGesture(GestureEvent event, ExtendedEventListener listener) {
 
         int eventType = event.getType();
         boolean consumed = false;
@@ -85,7 +93,7 @@ public class FullTouchGestureHandler extends GestureHandler implements
 
         case GestureInteractiveZone.GESTURE_FLICK:
 
-            consumed = component.onFlickEvent(event.getStartX(),
+            consumed = listener.flick(event.getStartX(),
                     event.getStartY(), event.getFlickDirection(),
                     event.getFlickSpeed(), event.getFlickSpeedX(),
                     event.getFlickSpeedY());
@@ -93,7 +101,7 @@ public class FullTouchGestureHandler extends GestureHandler implements
             break;
 
         case GestureInteractiveZone.GESTURE_PINCH:
-            consumed = component.onPinchEvent(event.getStartX(),
+            consumed = listener.pinch(event.getStartX(),
                     event.getStartY(), event.getPinchCenterX(),
                     event.getPinchCenterY(), event.getPinchCenterChangeX(),
                     event.getPinchCenterChangeY(),
@@ -101,10 +109,20 @@ public class FullTouchGestureHandler extends GestureHandler implements
                     event.getPinchDistanceCurrent(),
                     event.getPinchDistanceChange());
             break;
+            
+        case GestureInteractiveZone.GESTURE_LONG_PRESS:
+            consumed = listener.longPress(event.getStartX(),
+                    event.getStartY());
+            break;
+
 
         }
 
         return consumed;
+    }
+    
+    public boolean isGestureSupported(){
+    	return true;
     }
 
 }

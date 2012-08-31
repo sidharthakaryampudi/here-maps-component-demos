@@ -16,7 +16,7 @@ import com.nokia.maps.map.Point;
  */
 public abstract class TouchComponent implements MapComponent {
 
-    private final EventListener touchEventHandler;
+    private final ExtendedEventListener touchEventHandler;
 
     protected MapDisplay map;
 
@@ -31,6 +31,15 @@ public abstract class TouchComponent implements MapComponent {
      * The Event listener is not null - hence we are handling Touch.
      */
     public EventListener getEventListener() {
+        return touchEventHandler;
+    }
+    
+    
+    /**
+     * This Component is also able to handle Gesture Events.
+     * @return
+     */
+    public ExtendedEventListener getExtendedEventListener() {
         return touchEventHandler;
     }
 
@@ -83,7 +92,7 @@ public abstract class TouchComponent implements MapComponent {
      *            the y coordinate
      * @return <code>true</code> if pointer event was consumed
      */
-    public boolean onTouchEventEnd(int x, int y) {
+     boolean onTouchEventEnd(int x, int y) {
         touchAt(getTouchPoint(x, y));
         return TouchEventHandler.EVENT_CONSUMED;
     }
@@ -94,7 +103,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param y
      * @return
      */
-    public boolean onTouchEventStart(int x, int y) {
+     boolean onTouchEventStart(int x, int y) {
         // This event is not handled by default.
         return TouchEventHandler.EVENT_NOT_CONSUMED;
     }
@@ -105,7 +114,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param y
      * @return
      */
-    public boolean onTouchEventClear(int x, int y) {
+     boolean onTouchEventClear(int x, int y) {
         // This event is not handled by default.
         return TouchEventHandler.EVENT_NOT_CONSUMED;
     }
@@ -116,7 +125,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param y
      * @return
      */
-    public boolean onDragEvent(int x, int y) {
+     boolean onDragEvent(int x, int y) {
         // The default here is to do nothing except consume the event
         return isGUITouched(x, y);
     }
@@ -131,7 +140,7 @@ public abstract class TouchComponent implements MapComponent {
      * @param speedY
      * @return
      */
-    public boolean onFlickEvent(int x, int y, float direction, int speed,
+     boolean onFlickEvent(int x, int y, float direction, int speed,
             int speedX, int speedY) {
         // This event is not handled by default.
         return TouchEventHandler.EVENT_NOT_CONSUMED;
@@ -150,11 +159,21 @@ public abstract class TouchComponent implements MapComponent {
      * @param distanceChange
      * @return
      */
-    public boolean onPinchEvent(int x, int y, int centerX, int centerY,
+     boolean onPinchEvent(int x, int y, int centerX, int centerY,
             int centerChangeX, int centerChangeY, int distanceStarting,
             int distanceCurrent, int distanceChange) {
         // This event is not handled by default.
         return TouchEventHandler.EVENT_NOT_CONSUMED;
     }
+     
+     /**
+      * 
+      * @param x
+      * @param y
+      * @return
+      */
+     boolean onLongPressEvent(int x, int y){
+    	 return TouchEventHandler.EVENT_NOT_CONSUMED;
+     }
 
 }
