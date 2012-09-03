@@ -106,12 +106,20 @@ public class LongTouchComponent extends TouchComponent {
 	}
 
 	/**
-	 * The GUI is never active since this component does not react to Presses,
-	 * only Long Presses.
+	 * The GUI is always active since this component reacts to LongPresses anywhere.
+	 * 
 	 */
 	boolean isGUIActive(int x, int y) {
-		return false;
+		return true;
 	}
+	
+	/**
+	 * The touch event does not react to Presses,
+	 * only Long Presses, hence Touch events must not be consumed.
+	 */
+	 protected boolean onTouchEventEnd(int x, int y) {
+		 return TouchEventHandler.EVENT_NOT_CONSUMED;
+	 }
 
 	protected void touchAt(Point point) {
 		// This component doesn't do anything when touched.

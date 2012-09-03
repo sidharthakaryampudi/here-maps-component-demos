@@ -7,7 +7,8 @@ import com.nokia.maps.map.MapCanvas;
 import com.nokia.maps.map.Point;
 
 /**
- * The timer long touch component is a backup for when the Gesture API is unavailable.
+ * The timer long touch component is a backup for when the Gesture API is
+ * unavailable.
  * 
  */
 public class TimerLongTouchComponent extends LongTouchComponent {
@@ -23,8 +24,7 @@ public class TimerLongTouchComponent extends LongTouchComponent {
 	public TimerLongTouchComponent() {
 		super();
 	}
-	
-	
+
 	public String getId() {
 		return ID;
 	}
@@ -47,7 +47,7 @@ public class TimerLongTouchComponent extends LongTouchComponent {
 	 * The GUI is only active if the threshold has been exceeded.
 	 */
 	boolean isGUIActive(int x, int y) {
-		return System.currentTimeMillis() - time > THRESHOLD;
+		return true; 
 	}
 
 	/**
@@ -63,6 +63,14 @@ public class TimerLongTouchComponent extends LongTouchComponent {
 	protected boolean onTouchEventStart(int x, int y) {
 		time = System.currentTimeMillis();
 		return super.onTouchEventStart(x, y);
+	}
+
+	protected boolean onTouchEventEnd(int x, int y) {
+		if (System.currentTimeMillis() - time > THRESHOLD){
+			touchAt(getTouchPoint(x, y));
+			return TouchEventHandler.EVENT_CONSUMED;
+		}
+		return TouchEventHandler.EVENT_NOT_CONSUMED;
 	}
 
 	/**
