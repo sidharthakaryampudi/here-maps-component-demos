@@ -104,7 +104,6 @@ public class GeoLocatorButton extends ButtonComponent implements
                 location.getQualifiedCoordinates().getAltitude());
 
         if (locating) {
-            System.out.println(map.getCenter().distanceTo(currentLocation));
             if (map.getCenter().distanceTo(currentLocation) > THRESHOLD_DISTANCE) {
                 youAreHereMarker.setCoordinate(currentLocation);
                 map.removeMapObject(youAreHereMarker);

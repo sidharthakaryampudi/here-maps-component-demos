@@ -56,8 +56,8 @@ public class Base extends MapCanvas implements CommandListener {
         // Insert your own AppId and Token, as obtained from the above
         // URL into the two methods below.
 
-        ApplicationContext.getInstance().setAppID("...");
-        ApplicationContext.getInstance().setToken("...");
+    	ApplicationContext.getInstance().setAppID("K7sXZccMkHn9uAxCEy0p");
+        ApplicationContext.getInstance().setToken("5hZMAu6cmKaSgsDsuKLENQ%3D%3D");
 
         // Due to an issue with the hostnames that are used it is not possible to use
         // international maps at this stage on the WTK emulators. The devices and Nokia

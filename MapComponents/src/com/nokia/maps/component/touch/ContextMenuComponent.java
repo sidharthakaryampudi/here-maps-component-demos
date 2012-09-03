@@ -115,10 +115,8 @@ public class ContextMenuComponent extends GUITouchComponent {
     // overrides TouchComponent
     protected void touchAt(Point point) {
         mapCanvas.onMapContentUpdated();
-        System.out.println(selectedIndex);
         if (selectedIndex != -1 && currentCommands != null
                 && currentCommands.length > selectedIndex) {
-            System.out.println(selectedIndex);
             commandListener.commandAction(currentCommands[selectedIndex],
                     mapCanvas);
         }

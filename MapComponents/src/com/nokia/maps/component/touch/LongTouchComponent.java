@@ -121,5 +121,9 @@ public class LongTouchComponent extends TouchComponent {
 		longPressAt(new Point(x, y));
 		return TouchEventHandler.EVENT_CONSUMED;
 	}
+	
+	protected boolean onDragEvent(int x, int y) {
+		return TouchEventHandler.EVENT_NOT_CONSUMED;
+	}
 
 }
