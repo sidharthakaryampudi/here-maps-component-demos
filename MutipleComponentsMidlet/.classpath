@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="res"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.elipse.mtj.JavaMEContainer/Nokia SDK 1.1 for Java/Nokia_SDK_1_1_Java"/>
+	<classpathentry kind="con" path="org.elipse.mtj.JavaMEContainer/Nokia SDK 2.0 for Java/Nokia_SDK_2_0_Java"/>
 	<classpathentry exported="true" kind="lib" path="C:/Nokia/Devices/Nokia_SDK_2_0_Java/plugins/maps api/bin/Maps_API.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Nokia/Devices/Nokia_SDK_2_0_Java/plugins/maps api/doc/com.plugin.maps_1.0.jar!/html/Javadocs/Maps_API"/>

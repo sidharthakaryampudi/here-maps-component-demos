@@ -87,8 +87,8 @@ public class InfoBubbleRenderer extends TooltipRenderer {
         tooltip.incrementShift(-draggedTo.getY());	
     }
 	
-    public void flick(int shift) {
-        tooltip.incrementShift(shift);
+    public void flick(int speed) {
+        tooltip.incrementShift(-speed);
     }
 
 }

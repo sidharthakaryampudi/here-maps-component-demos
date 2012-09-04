@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mtjMetadata jad="MultipleComponents.jad" version="1.2.2.201206141136">
-   <device group="Nokia SDK 2.0 for Java" name="Nokia_SDK_2_0_Java"/>
+   <device group="Nokia SDK 1.1 for Java" name="Nokia_SDK_1_1_Java"/>
    <signing projectSpecific="false" signProject="false">
       <alias/>
    </signing>
@@ -8,8 +8,8 @@
       <configuration active="false" name="Nokia SDK 1.0 for Java">
          <device group="Nokia SDK 1.0 for Java" name="Nokia_SDK_1_0_Java"/>
          <symbolSet name="Nokia_SDK_1_0_Java">
-            <symbol name="screen.isColor" value="true"/>
             <symbol name="MMAPI" value="1.2"/>
+            <symbol name="screen.isColor" value="true"/>
             <symbol name="model" value="Nokia SDK 1.0 for Java"/>
             <symbol name="TOUCH-FRAMEANIMATOR" value="1.1"/>
             <symbol name="screen.bitDepth" value="16"/>
@@ -33,14 +33,14 @@
             <symbol name="SATSA-APDU" value="1.0"/>
             <symbol name="JSR75" value="1.0"/>
             <symbol name="TOUCH-GESTURE" value="1.1"/>
-            <symbol name="JSR184" value="1.1"/>
             <symbol name="SATSA-CRYPTO" value="1.0"/>
+            <symbol name="JSR184" value="1.1"/>
             <symbol name="version.configuration" value="CDLC-1.1"/>
             <symbol name="version.profile" value="MIDP-2.1"/>
             <symbol name="screen.height" value="320"/>
          </symbolSet>
       </configuration>
-      <configuration active="false" name="Nokia SDK 2.0 for Java">
+      <configuration active="true" name="Nokia SDK 2.0 for Java">
          <device group="Nokia SDK 2.0 for Java" name="Nokia_SDK_2_0_Java"/>
          <symbolSet name="Nokia_SDK_2_0_Java">
             <symbol name="screen.isColor" value="true"/>
@@ -70,15 +70,15 @@
             <symbol name="JSR75" value="1.0"/>
             <symbol name="SVG" value="1.1"/>
             <symbol name="Mobile_Sensor_API" value="1.0"/>
-            <symbol name="JSR184" value="1.1"/>
             <symbol name="SATSA-CRYPTO" value="1.0"/>
+            <symbol name="JSR184" value="1.1"/>
             <symbol name="version.configuration" value="CDLC-1.1"/>
             <symbol name="jsr172_xmlparser" value="1.1"/>
             <symbol name="version.profile" value="MIDP-2.1"/>
             <symbol name="screen.height" value="400"/>
          </symbolSet>
       </configuration>
-      <configuration active="true" name="Nokia SDK 1.1 for Java">
+      <configuration active="false" name="Nokia SDK 1.1 for Java">
          <device group="Nokia SDK 1.1 for Java" name="Nokia_SDK_1_1_Java"/>
          <symbolSet name="Nokia_SDK_1_1_Java">
             <symbol name="screen.isColor" value="true"/>
@@ -107,8 +107,8 @@
             <symbol name="JSR75" value="1.0"/>
             <symbol name="SVG" value="1.1"/>
             <symbol name="TOUCH-GESTURE" value="1.1"/>
-            <symbol name="SATSA-CRYPTO" value="1.0"/>
             <symbol name="JSR184" value="1.1"/>
+            <symbol name="SATSA-CRYPTO" value="1.0"/>
             <symbol name="version.configuration" value="CDLC-1.1"/>
             <symbol name="version.profile" value="MIDP-2.1"/>
             <symbol name="screen.height" value="320"/>

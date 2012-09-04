@@ -101,8 +101,8 @@ public class ContextMenuRenderer extends GUIItemRenderer {
      * Flicks the Context Menu by a fixed amount.
      * @param shift
      */
-    public void flick(int shift) {
-        contextMenu.incrementShift(shift);
+    public void flick(int speed) {
+        contextMenu.incrementShift(-speed);
     }
 
     /**

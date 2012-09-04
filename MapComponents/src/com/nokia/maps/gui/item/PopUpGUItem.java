@@ -58,9 +58,13 @@ public abstract class PopUpGUItem implements GUIData {
     }
 	
     public void incrementShift(int shiftBy) {
-	
-        if (shift + shiftBy >= 0 && shift + shiftBy < maxShift) {
-            shift = shift + shiftBy;
+    	
+    	if (shift + shiftBy < 0 ){
+    		shift = 0;
+    	} else if (shift + shiftBy > maxShift){
+    		shift = maxShift;
+    	} else {
+    		shift = shift + shiftBy;
         }
 	
     }

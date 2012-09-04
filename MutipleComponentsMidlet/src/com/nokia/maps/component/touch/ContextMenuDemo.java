@@ -96,7 +96,7 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
         // Now we can set up the markers..
         addMarkerData(new GeoCoordinate(40.4, -3.683333, 0), "Madrid");
         addMarkerData(new GeoCoordinate(51.477811d, -0.001475d, 0), "London");
-        addMarkerData(new GeoCoordinate(60.170833, 24.9375, 0), "Helsinki");
+        addMarkerData(new GeoCoordinate(60.170833, 24.9375, 0), "Helsinki    ");
         addMarkerData(new GeoCoordinate(59.949444, 10.756389, 0), "Oslo");
 
         addMarkerData(new GeoCoordinate(45.4375, 12.335833, 0), "Venice");
@@ -142,15 +142,9 @@ public class ContextMenuDemo extends MapCanvas implements CommandListener,
 
             ChoiceGroup list1 = new ChoiceGroup(currentFocus, Choice.POPUP);
 
-            list1.append("item1", null);
-            list1.append("item2", null);
-            list1.append("item3", null);
-            list1.append("item4", null);
-            list1.append("item5", null);
-            list1.append("item6", null);
-            list1.append("item7", null);
-            list1.append("item8", null);
-
+            for (int i = 0; i < currentFocus.length(); i ++){
+            list1.append("item" + (i + 1), null);
+            }
             contextMenus.addData(list1, commands);
         } else {
 
