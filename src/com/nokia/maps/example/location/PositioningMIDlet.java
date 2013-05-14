@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.location;
 
 
@@ -43,7 +46,7 @@ public class PositioningMIDlet extends BaseMIDlet {
         private final Command POSITIONING_COMMAND = new Command("Positioning",
                 Command.ITEM, 1);
         private final Positioning positioning;
-        
+
         private final GeoBoundingBox EUROPE = new GeoBoundingBox(
                 new GeoCoordinate(65, -5, 0), new GeoCoordinate(35, 15, 0));
 
@@ -69,7 +72,7 @@ public class PositioningMIDlet extends BaseMIDlet {
                 throw new RuntimeException(e.getMessage());
             }
 
-            // Set up the map, this will initially display a map of Europe.          
+            // Set up the map, this will initially display a map of Europe.
             map.zoomTo(EUROPE, false);
 
             if (!hasPointerEvents()) {

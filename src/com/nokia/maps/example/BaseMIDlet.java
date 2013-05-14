@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example;
 
 
@@ -14,7 +17,7 @@ import javax.microedition.lcdui.Displayable;
 
 
 /**
- * 
+ *
  * Framework for all the example midlets.
  *
  */
@@ -59,7 +62,7 @@ public abstract class BaseMIDlet extends MIDlet {
 
         }
     }
-    
+
     /**
      * Most demos start with the map displayed.
      * @param display

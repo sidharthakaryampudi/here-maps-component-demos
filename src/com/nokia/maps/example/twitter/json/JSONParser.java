@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.twitter.json;
 
 
@@ -23,7 +26,7 @@ public class JSONParser {
 
     /**
      * Parses JSONObject from InputStream
-     * 
+     *
      * @param stream the input stream to parse
      * @return a JSON object holding the data parsed from the input stream.
      * @throws IOException if the input stream can't be found.
@@ -86,7 +89,7 @@ public class JSONParser {
      * Reads next token from reader
      * @param reader reader for JSON stream
      * @return the next data object.
-     * @throws IOException 
+     * @throws IOException
      */
     private static Object next(JSONReader reader) throws IOException {
         reader.next();
@@ -116,9 +119,9 @@ public class JSONParser {
 
     /**
      * creates JSONArray using the given reader
-     * @param reader 
+     * @param reader
      * @return an array holding parsed JSON data.
-     * @throws IOException 
+     * @throws IOException
      */
     private static Object createArray(JSONReader reader) throws IOException {
         JSONArray array = new JSONArray();
@@ -139,7 +142,7 @@ public class JSONParser {
      * creates JSONObject using the given reader
      * @param reader reader for JSON stream
      * @return an object holding JSON data.
-     * @throws IOException 
+     * @throws IOException
      */
     private static Object createObject(JSONReader reader) throws IOException {
         JSONObject object = new JSONObject();

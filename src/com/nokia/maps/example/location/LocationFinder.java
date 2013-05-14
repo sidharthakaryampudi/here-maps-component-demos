@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.location;
 
 

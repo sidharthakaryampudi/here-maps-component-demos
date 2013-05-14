@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.routing;
 
 
@@ -43,7 +46,7 @@ public class TurnByTurnForm extends Form {
                 buf.append(manuevers[j].getInstruction()).append("\n\n");
             }
         }
-        
+
         append(new StringItem("Instructions", buf.toString()));
         addCommand(BACK);
     }

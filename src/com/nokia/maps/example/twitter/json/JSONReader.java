@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.twitter.json;
 
 
@@ -20,7 +23,7 @@ class JSONReader {
 
     /**
      * Creates new JSONReader for the given stream
-     * 
+     *
      * @param stream The data stream to read.
      */
     public JSONReader(InputStream stream) {
@@ -61,7 +64,7 @@ class JSONReader {
 
     /**
      * Reads streams until one of the characters is found.
-     * 
+     *
      * @param end the end byte(s) to look for.
      * @return A string holding all the chars up to the end byte(s)
      * @throws IOException if the stream cannot be read.

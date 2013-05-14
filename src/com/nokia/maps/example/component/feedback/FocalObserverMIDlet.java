@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.component.feedback;
 
 
@@ -21,7 +24,7 @@ import com.nokia.maps.ui.helpers.Orientation;
  * This MIDlet just sets the Focal Observer demo as current Displayable.
  */
 public class FocalObserverMIDlet extends BaseMIDlet {
-	
+
     private  final GeoBoundingBox EUROPE = new GeoBoundingBox(
             new GeoCoordinate(65, -5, 0), new GeoCoordinate(35, 15, 0));
 
@@ -62,7 +65,7 @@ public class FocalObserverMIDlet extends BaseMIDlet {
             addCityMarker(new GeoCoordinate(60.170833, 24.9375, 0), "Helsinki");
             addCityMarker(new GeoCoordinate(59.949444, 10.756389, 0), "Oslo");
 
-            addCityMarker(new GeoCoordinate(45.4375, 12.335833, 0), "Venice");            
+            addCityMarker(new GeoCoordinate(45.4375, 12.335833, 0), "Venice");
 
             // Set up the map, this will initially display a map of Europe.
             map.zoomTo(EUROPE, false);

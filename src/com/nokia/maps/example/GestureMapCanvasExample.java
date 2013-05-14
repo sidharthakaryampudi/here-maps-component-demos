@@ -1,4 +1,6 @@
-
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example;
 
 
@@ -111,7 +113,7 @@ public abstract class GestureMapCanvasExample extends GestureMapCanvas implement
     public void commandRun(Command c) {}
 
     /**
-     * 
+     *
      * @return the actual Command listener for this example.
      */
     public CommandListener getCommandListener() {

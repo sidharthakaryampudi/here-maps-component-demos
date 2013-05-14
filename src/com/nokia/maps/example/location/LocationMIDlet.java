@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.location;
 
 
@@ -57,7 +60,7 @@ public class LocationMIDlet extends BaseMIDlet {
         private static final float THRESHOLD_DISTANCE = 100f;
         private static final int DEFAULT_TIMEOUT = -1;
         private Thread t;
-        
+
         private final GeoBoundingBox EUROPE = new GeoBoundingBox(
                 new GeoCoordinate(65, -5, 0), new GeoCoordinate(35, 15, 0));
 
@@ -76,7 +79,7 @@ public class LocationMIDlet extends BaseMIDlet {
             uncertainty = getMapFactory().createMapCircle(100, currentLocation);
             uncertainty.setColor(0x8000FF00);
 
-            // Set up the map show the whole of the European Continent.          
+            // Set up the map show the whole of the European Continent.
             map.zoomTo(EUROPE, false);
             locateButton = new ButtonCommand(Graphics.TOP | Graphics.LEFT, this,
                     getCommandListener(), REQUEST_LOCATION);

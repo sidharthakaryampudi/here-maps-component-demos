@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.twitter;
 
 
@@ -33,7 +36,7 @@ class TwitterRequest {
      * Updates feed and parses response
      *
      * @param coord the center point of the twitter API request.
-     * @param km distance to request over in km. 
+     * @param km distance to request over in km.
      * @param query the query string to find in each tweet.
      * @param count the maxumum number of tweets to return.
      * @return A list of tweets.

@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.component.button;
 
 
@@ -49,7 +52,7 @@ public class ScaleBarMIDlet extends BaseMIDlet {
 
         /**
          * Scale Bar Demo Constructor
-         * 
+         *
          * @param display
          * @param midlet
          */
@@ -86,9 +89,9 @@ public class ScaleBarMIDlet extends BaseMIDlet {
 
         /**
          * Standard Command button interaction.
-         * 
+         *
          * @param c
-         * 
+         *
          */
         public void commandRun(final Command c) {
             if (c == SCALE_BAR_COMMAND) {

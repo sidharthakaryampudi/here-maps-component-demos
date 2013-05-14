@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.component.gesture;
 
 
@@ -78,7 +81,7 @@ public class LongTouchMIDlet extends BaseMIDlet {
                 longTouch = new TimerLongTouch(this, getCommandListener(),
                         LONG_TOUCH);
             }
-            
+
             // This demo requires touch to work.
             if (!hasPointerEvents()) {
                 note("Touch not enabled.", 5000);

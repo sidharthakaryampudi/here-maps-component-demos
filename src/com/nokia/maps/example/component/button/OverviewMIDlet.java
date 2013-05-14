@@ -1,3 +1,6 @@
+/**
+* Copyright (c) 2013 Nokia Corporation.
+*/
 package com.nokia.maps.example.component.button;
 
 
@@ -44,7 +47,7 @@ public class OverviewMIDlet extends BaseMIDlet {
                 Command.ITEM, 1);
         private final Overview overview;
         private Thread overviewUpdater;
-        
+
         private final GeoBoundingBox EUROPE = new GeoBoundingBox(
                 new GeoCoordinate(65, -5, 0), new GeoCoordinate(35, 15, 0));
 
