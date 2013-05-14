@@ -1,8 +1,8 @@
 /**
-* Copyright (c) 2013 Nokia Corporation.
-*/
-package com.nokia.maps.example;
+ * Copyright (c) 2013 Nokia Corporation.
+ */
 
+package com.nokia.maps.example;
 
 import com.nokia.maps.ui.helpers.ExitListener;
 import com.nokia.maps.ui.helpers.CommandRunner;

@@ -1,8 +1,8 @@
 /**
-* Copyright (c) 2013 Nokia Corporation.
-*/
-package com.nokia.maps.example.markers;
+ * Copyright (c) 2013 Nokia Corporation.
+ */
 
+package com.nokia.maps.example.markers;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Display;
@@ -13,12 +13,10 @@ import com.nokia.maps.example.BaseMIDlet;
 import com.nokia.maps.example.MapCanvasExample;
 import com.nokia.maps.example.component.button.ButtonCommand;
 import com.nokia.maps.map.MapCanvas;
-import com.nokia.maps.map.MapDisplay;
 import com.nokia.maps.map.MapDisplayState;
 import com.nokia.maps.map.MapStandardMarker;
 import com.nokia.maps.map.Point;
 import javax.microedition.lcdui.Graphics;
-
 
 /**
  * This MIDlet just sets example as current Displayable.

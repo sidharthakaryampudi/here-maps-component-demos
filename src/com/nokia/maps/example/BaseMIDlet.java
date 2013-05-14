@@ -1,8 +1,8 @@
 /**
-* Copyright (c) 2013 Nokia Corporation.
-*/
-package com.nokia.maps.example;
+ * Copyright (c) 2013 Nokia Corporation.
+ */
 
+package com.nokia.maps.example;
 
 import javax.microedition.lcdui.Alert;
 import javax.microedition.lcdui.AlertType;
@@ -15,11 +15,8 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
 
-
 /**
- *
- * Framework for all the example midlets.
- *
+ * Framework for all the example MIDlets.
  */
 public abstract class BaseMIDlet extends MIDlet {
 

@@ -1,8 +1,9 @@
 MIDlet-32: Demo: Marker Clustering,/component.png,com.nokia.maps.example.markers.MarkerClusteringMIDlet
 MIDlet-31: Demo: Touch Routing,/route.png,com.nokia.maps.example.routing.TouchRoutingMIDlet
 MIDlet-30: Demo: KML Earthquake,/kml.png,com.nokia.maps.example.kml.TouchKMLEarthquakeMIDlet
-MIDlet-Name: MapExamples MIDlet Suite
-MIDlet-Jar-URL: MapsAPIExamples.jar
+MIDlet-Icon: /here-icon-50.png
+MIDlet-Name: HERE Maps Demos
+MIDlet-Jar-URL: HEREMapsComponentDemos.jar
 MicroEdition-Configuration: CLDC-1.0
 MIDlet-Permissions: javax.microedition.io.Connector.http,javax.microedition.io.Connector.file.write,javax.microedition.io.Connector.file.read
 MIDlet-29: Demo: Touch Place Search,/place.png,com.nokia.maps.example.place.TouchPlaceMIDlet
@@ -34,7 +35,7 @@ MIDlet-15: Focal Observer Component,/component.png,com.nokia.maps.example.compon
 MIDlet-14: Basic Map Components,/component.png,com.nokia.maps.example.component.MapComponentMIDlet
 MIDlet-13: Loading a KML file,/kml.png,com.nokia.maps.example.kml.LoadKMLMIDlet
 MIDlet-12: Locate the device,/positioning.png,com.nokia.maps.example.location.LocationMIDlet
-MIDlet-11: Creating a route,/route.png,com.nokia.maps.example.routing.RoutingMIDlet
 Nokia-MIDlet-App-Orientation: manual
+MIDlet-11: Creating a route,/route.png,com.nokia.maps.example.routing.RoutingMIDlet
 MIDlet-10: Sharing a map,/place.png,com.nokia.maps.example.sharing.SharingMIDlet
 MIDlet-Version: 1.0.0
