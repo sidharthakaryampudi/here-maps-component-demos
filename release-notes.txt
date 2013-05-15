@@ -17,21 +17,21 @@ The MIDlet suite contains examples of the following components:
     languages.
  4. Address search: This MIDlet displays a map and demonstrates the geocoding
     and reverse geocoding functionality.
- 5. Marker Example: This MIDlet displays a map and demonstrates to place a
-    marker on the map, and make it draggable using a MapComponent
- 6. Custom Marker Example: This MIDlet displays a map and demonstrates to place
-    a marker with a custom icon image on the map.
+ 5. Marker Example: This MIDlet displays a map and demonstrates how to place a
+    marker on the map, and make it draggable using a MapComponent.
+ 6. Custom Marker Example: This MIDlet displays a map and demonstrates how to 
+	place a marker with a custom icon image on the map.
  7. Routing Example: This MIDlet displays a map and demonstrates how to
-    calculate a route between miltiple waypoints that are selected on the
+    calculate a route between multiple waypoints that are selected on the
     displayed map.
  8. Cached Map Example: This MIDlet displays a map and demonstrates file based
     caching for the map tiles.
- 9. Place Search: This MIDlet use the place search from the Search manager to
+ 9. Place Search: This MIDlet uses the place search from the Search manager to
     locate various places and displays these on the map.
 10. Share My Map: This MIDlet displays a map and allows the map to be shared
     via a SMS with another device.
-11. Tweets On My Map: This MIDlet allows you to search for twitter messages
-    containing a search term and displays these on a the map.
+11. Tweets On My Map: This MIDlet allows you to search for Twitter messages
+    containing a search term and displays these on the map.
 12. KML Data Example: This MIDlet illustrates how KML data can be parsed and
     used to create objects on the map.
 13. Adding an overlay: This MIDlet illustrates how to place an overlay over the
@@ -42,7 +42,7 @@ The MIDlet suite contains examples of the following components:
 15. Locate the device: This MIDlet demonstrates how to make a request to the
     location API and display the location of the device on a map.
   
-The following Midlets demonstrate the use of custom components:
+The following MIDlets demonstrate the use of custom components:
 
  1. Type Selector Component: This MIDlet demonstrates adding a map type selector
     button to the screen. This allows the user to switch between the five
@@ -56,8 +56,8 @@ The following Midlets demonstrate the use of custom components:
     geolocator button to the map. When the button is pressed, the app will
     listen for GPS or Cell ID location events as appropriate, and update a
     marker to the center of the screen.
- 4. Overview Component,: This MIDlet demonstrates the use of the overview 
-    (picture-in-picture) button, the small Picture-in-Picture will track the
+ 4. Overview Component: This MIDlet demonstrates the use of the overview 
+    (picture-in-picture) button; the small Picture-in-Picture will track the
     central location of the main map as it is panned and zoomed.
  5. Infobubble Component: This MIDlet demonstrates a component that replaces a
     registered marker when it is centered on the screen. The Infobubble itself
@@ -102,11 +102,11 @@ More information is available at:
 3. Compatibility
 -------------------------------------------------------------------------------
 
-Nokia Asha software platform 1.0 and Series 40 full touch, touch and type and
+Nokia Asha software platform 1.0 and Series 40 full touch, touch and type, and
 non-touch phones. Tested on Nokia Asha 311 and 501. Developed with Nokia Asha
 SDK 1.0.
 
-The API is compatible with all  Java Technology (JSR) 139 Connected, Limited
+The API is compatible with all Java Technology (JSR) 139 Connected, Limited
 Device Configuration (CLDC) 1.1 and Mobile Information Device Profile (MIDP)
 2.0, JSR 118 devices.
 
@@ -116,7 +116,7 @@ directory of the Nokia Asha 1.0 SDK.
 3.1 Known issues
 ----------------
 
-- Some map objects, such as rectangles are not drawn correctly around the
+- Some map objects, such as rectangles, are not drawn correctly around the
   International Date Line (+/-180 degrees longitude).
 - On some KVMs it is not possible to download a map due to the name of the host
   that provides the default map tiles.
@@ -128,15 +128,15 @@ directory of the Nokia Asha 1.0 SDK.
 -------------------------------------------------------------------------------
 
 The examples have been created with Nokia Asha SDK 1.0. To open the project in
-the SDK, select File -> Import -> Existing Projects. and browse to the folder
+the SDK, select File -> Import -> Existing Projects and browse to the folder
 you have the project in. Click Finish. Installation via Netbeans is also
 included.
 
 The project is dependent on the HERE Maps libraries. The libraries are provided
 with the SDK, but you still need to include them in your build:
- 1. Open the project properties (right click the project name and from the
-    pop-up menu select Properties).
- 2. From properties select Java Build Path.
+ 1. Open the project properties (right click the project name and select 
+	Properties from the pop-up menu).
+ 2. From Properties, select Java Build Path.
  3. On Libraries tab, click Add External JARs.
  4. Navigate to the folder where the HERE Maps libaries are located. In the
     default SDK installation that is
@@ -154,7 +154,7 @@ com.nokia.maps.example.
 Now you are ready to build and test the application. Since this example consists
 of many MIDlets, launch the application in the emulator by selecting Run As ->
 Emulated JAVA ME JAD. To create the .jad and .jar file, open Application
-Descriptor in the IDE and on Overview tab select Create package.
+Descriptor in the IDE and in the Overview tab, select Create package.
 
 You can install the application on a phone by transferring the .jar file in Mass
 storage mode, with Nokia Suite or over Bluetooth. Locate the file with file
