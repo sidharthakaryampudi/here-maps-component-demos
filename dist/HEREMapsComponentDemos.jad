@@ -1,0 +1,42 @@
+MIDlet-1: Basic map,/map.png,com.nokia.maps.example.map.MapMIDlet
+MIDlet-10: Sharing a map,/place.png,com.nokia.maps.example.sharing.SharingMIDlet
+MIDlet-11: Creating a route,/route.png,com.nokia.maps.example.routing.RoutingMIDlet
+MIDlet-12: Locate the device,/positioning.png,com.nokia.maps.example.location.LocationMIDlet
+MIDlet-13: Loading a KML file,/kml.png,com.nokia.maps.example.kml.LoadKMLMIDlet
+MIDlet-14: Basic Map Components,/component.png,com.nokia.maps.example.component.MapComponentMIDlet
+MIDlet-15: Focal Observer Component,/component.png,com.nokia.maps.example.component.feedback.FocalObserverMIDlet
+MIDlet-16: Restrict Map Component,/component.png,com.nokia.maps.example.component.feedback.RestrictMapMIDlet
+MIDlet-17: Tooltip Component,/component.png,com.nokia.maps.example.component.feedback.TooltipMIDlet
+MIDlet-18: Infobubble Component,/component.png,com.nokia.maps.example.component.touch.InfoBubbleMIDlet
+MIDlet-19: Overview Component,/component.png,com.nokia.maps.example.component.button.OverviewMIDlet
+MIDlet-2: Map types,/map.png,com.nokia.maps.example.maptype.MapTypeMIDlet
+MIDlet-20: Positioning Component,/component.png,com.nokia.maps.example.location.PositioningMIDlet
+MIDlet-21: Scale Bar Component,/component.png,com.nokia.maps.example.component.button.ScaleBarMIDlet
+MIDlet-22: Button Components,/touch.png,com.nokia.maps.example.component.touch.TouchComponentsMIDlet
+MIDlet-23: Centering Component,/touch.png,com.nokia.maps.example.component.touch.CenteringMIDlet
+MIDlet-24: Context Menu Component,/touch.png,com.nokia.maps.example.component.touch.ContextMenuMIDlet
+MIDlet-25: Type Selector Component,/touch.png,com.nokia.maps.example.maptype.TypeSelectorMIDlet
+MIDlet-26: Pinch Zoom Gesture,/gesture.png,com.nokia.maps.example.component.gesture.PinchZoomMIDlet
+MIDlet-27: Long Touch Gesture,/gesture.png,com.nokia.maps.example.component.gesture.LongTouchMIDlet
+MIDlet-28: Demo: Tweets On My Map,/map.png,com.nokia.maps.example.twitter.TwitterMIDlet
+MIDlet-29: Demo: Touch Place Search,/place.png,com.nokia.maps.example.place.TouchPlaceMIDlet
+MIDlet-3: Map language,/map.png,com.nokia.maps.example.map.MapLanguageMIDlet
+MIDlet-30: Demo: KML Earthquake,/kml.png,com.nokia.maps.example.kml.TouchKMLEarthquakeMIDlet
+MIDlet-31: Demo: Touch Routing,/route.png,com.nokia.maps.example.routing.TouchRoutingMIDlet
+MIDlet-32: Demo: Marker Clustering,/component.png,com.nokia.maps.example.markers.MarkerClusteringMIDlet
+MIDlet-4: Map caching,/map.png,com.nokia.maps.example.map.CacheMIDlet
+MIDlet-5: Adding a marker,/map.png,com.nokia.maps.example.markers.MarkerMIDlet
+MIDlet-6: Adding an Image marker,/map.png,com.nokia.maps.example.markers.CustomMarkerMIDlet
+MIDlet-7: Adding an overlay,/map.png,com.nokia.maps.example.overlay.OverlayMidlet
+MIDlet-8: Address search,/place.png,com.nokia.maps.example.search.SearchMIDlet
+MIDlet-9: Place Search,/place.png,com.nokia.maps.example.place.PlaceMIDlet
+MIDlet-Icon: /here-icon-50.png
+MIDlet-Jar-Size: 558840
+MIDlet-Jar-URL: HEREMapsComponentDemos.jar
+MIDlet-Name: HERE Maps Demos
+MIDlet-Permissions: javax.microedition.io.Connector.http,javax.microedition.io.Connector.file.write,javax.microedition.io.Connector.file.read
+MIDlet-Vendor: Nokia
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.1
+Nokia-MIDlet-App-Orientation: manual
