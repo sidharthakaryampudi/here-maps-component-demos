@@ -86,11 +86,10 @@ Several other fully functional demos are also available which combine the use of
 the various examples described with touch components to provide a complete
 application.
 
-This example is hosted in Nokia Developer Projects:
-- https://projects.developer.nokia.com/mapcomponentdemos
+This example is hosted in GitHub:
+https://github.com/nokia-developer/here-maps-component-demos
 
-More information is available at:
-- http://developer.here.com/java
+More information is available at http://developer.here.com/java
 
 
 1. Prerequisites
@@ -134,8 +133,9 @@ included.
 
 The project is dependent on the HERE Maps libraries. The libraries are provided
 with the SDK, but you still need to include them in your build:
+
  1. Open the project properties (right click the project name and select 
-	Properties from the pop-up menu).
+    Properties from the pop-up menu).
  2. From Properties, select Java Build Path.
  3. On Libraries tab, click Add External JARs.
  4. Navigate to the folder where the HERE Maps libaries are located. In the
@@ -167,7 +167,7 @@ menu and tap it to launch.
 
 See the license text file delivered with this project. The license file is also
 available online at
-https://projects.developer.nokia.com/mapcomponentdemos/browser/mapcomponentdemos/Licence.txt
+https://github.com/nokia-developer/here-maps-component-demos/blob/master/Licence.txt
 
 
 5. Version history
